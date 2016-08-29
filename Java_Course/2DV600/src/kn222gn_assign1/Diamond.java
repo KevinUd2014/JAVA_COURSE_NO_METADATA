@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Diamond {
 
-	//public static Scanner scanner = new Scanner(System.in);
+	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main (String args[]){
 		
-		Scanner scanner = new Scanner(System.in);
+		//Scanner scanner = new Scanner(System.in);
 		
 		int inputNumber;
 		
@@ -30,6 +30,7 @@ public class Diamond {
 				}
 				else{
 					printDiamond(inputNumber);
+					//scanner.close();
 				}
 			}
 			catch(Exception e){
@@ -66,6 +67,7 @@ public class Diamond {
 			if(firstDot == inputNumber){
 				multiDots = -2;
 			}
+			//scanner.close();
 		}
 	}
 }
