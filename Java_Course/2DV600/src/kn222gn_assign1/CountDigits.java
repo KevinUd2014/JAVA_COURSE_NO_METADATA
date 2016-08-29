@@ -30,13 +30,13 @@ public class CountDigits {
 			else{
 				oddNumber++;
 			}
-			sumNumber = sumNumber + value % 10;
+			sumNumber += value % 10;
 			//Not 100% sure what this does, but without it there will be no calculation. So it sets value to something.
 			value/=10;
 		}
 		System.out.println();//Empty row
 		//Output text with result.
-		System.out.printf("Even numbers: %d, Odd numbers: %d, Zeros: %d, Sum: %d", evenNumber, oddNumber, zeroNumber, sumNumber);
+		System.out.printf("Even numbers: %d, Odd numbers: %d, Zeros: %d, Sum: %d", evenNumber, oddNumber, zeroNumber, sumNumber+zeroNumber);
 		scanNumber.close();
 	}
 }

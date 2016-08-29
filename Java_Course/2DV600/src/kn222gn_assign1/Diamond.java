@@ -15,31 +15,31 @@ public class Diamond {
 		//inputNumber = scanner.nextInt();
 		System.out.printf("Enter a Odd number: ");
 		//inputNumber = scanner.nextInt();
-		
-		try{
-			while(true){
+		while(true){
+			
+			try{
 				inputNumber = scanner.nextInt();
 				
-				if(inputNumber < 3 || inputNumber > 1000 || inputNumber % 2 == 0)
+				if(inputNumber < 3 || inputNumber > 21)
 				{
-					System.out.printf("Invalid program is set to numbers between 0 and 20!");
+					System.out.printf("Invalid program is set to numbers between 0 and 21!");
+				}
+				else if(inputNumber % 2 == 0)
+				{
+					System.out.printf("Must be a Odd number");
 				}
 				else{
 					printDiamond(inputNumber);
 				}
 			}
+			catch(Exception e){
+				System.out.println("Not a Number");
+	            //gets the next input
+				scanner.next();
+				//printDiamond(inputNumber);
+			}
+		//scanner.close();
 		}
-		catch(Exception e){
-			System.out.println("Not a Number");
-            //gets the next input
-			//scanner.hasNextIext();
-			//printDiamond(inputNumber);
-		}
-		scanner.close();
-		
-		//printDiamond(inputNumber);
-		
-		
 	}
 	
 	public static void printDiamond(int inputNumber){
