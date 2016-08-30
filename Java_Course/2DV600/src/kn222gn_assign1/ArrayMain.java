@@ -14,7 +14,7 @@ public class ArrayMain {
 		int[] string2;
 		
 		int[] arraySub1 = {1,2,3,4,5};
-		int[] arraySub2 = {1,2,3};
+		int[] arraySub2 = {1,2,3,4,6};
 		
 		sring = arr.reverse(arrayReverseOrder);
 		

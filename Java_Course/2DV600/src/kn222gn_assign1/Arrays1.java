@@ -72,12 +72,19 @@ public class Arrays1 {
 		
 		boolean boo = false;
 		
-		for(int i = 0; i < arr.length; i++)
+		int i;
+		int a;
+		
+		for(i = 0, a = 0; i < arr.length; i++)
 		{
-			if(arr.length < sub.length){
+			if(arr[i] >= sub[a]){
 				
-				System.out.print("To long substring");
-				boo = false;
+				if(arr.length >= sub.length-i){
+					boo = true;
+				}
+				else{
+					boo = false;
+				}
 			}
 		}
 		return boo;
