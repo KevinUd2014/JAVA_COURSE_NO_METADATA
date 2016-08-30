@@ -13,6 +13,9 @@ public class ArrayMain {
 		
 		int[] string2;
 		
+		int[] arraySub1 = {1,2,3,4,5};
+		int[] arraySub2 = {1,2,3};
+		
 		sring = arr.reverse(arrayReverseOrder);
 		
 		string2 = arr.sort(arrayNotInOrder);
@@ -24,6 +27,8 @@ public class ArrayMain {
 		System.out.println("\nreverse order array: ");
 		System.out.print(arr.toString(sring));
 		
+		System.out.println("\nsubsequense array: ");
+		System.out.print(arr.hasSubsequense(arraySub1, arraySub2));
 		
 		
 	}

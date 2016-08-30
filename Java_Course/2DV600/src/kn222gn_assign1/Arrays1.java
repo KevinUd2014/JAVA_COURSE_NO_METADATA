@@ -67,10 +67,22 @@ public class Arrays1 {
 		
 		return arrayNew;
 	}
-	/*
+	
 	public boolean hasSubsequense(int[] arr, int[] sub){
 		
+		boolean boo = false;
+		
+		for(int i = 0; i < arr.length; i++)
+		{
+			if(arr.length < sub.length){
+				
+				System.out.print("To long substring");
+				boo = false;
+			}
+		}
+		return boo;
 	}
+	/*
 	public int absdif(int[] arr1, int[] arr2){
 		
 	}*/
