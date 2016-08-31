@@ -23,6 +23,17 @@ public class Histogram {
 				System.out.print("File don't exist! ");
 			}
 			
+			inputScanner = new Scanner(file);
+			
+			while(inputScanner.hasNext()){
+				
+				//if(inputScanner.hasNextInt()){
+					
+					
+					
+				//}
+			}
+			
 		}
 		catch(Exception e){
 			
