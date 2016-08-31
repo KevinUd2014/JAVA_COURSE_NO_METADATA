@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Arrays1 {
 
+	//sums the array number together
 	public int sum(int[] arr){
 		//sum is 0
 		int sum = 0;
@@ -13,6 +14,7 @@ public class Arrays1 {
 		
 		return sum;
 	}
+	//makes the array readable as a string
 	public static String toString (int[] arr){
 
 		String arrayHandle = "";
@@ -25,6 +27,7 @@ public class Arrays1 {
 		return arrayHandle;
 		
 	}
+	//adds the number to all the array elements
 	public static int[] addN(int[] arr, int n){
 		
 		int newValue = n;
@@ -36,6 +39,7 @@ public class Arrays1 {
 		return arr;
 		
 	}
+	//reverses all the elements in the array
 	public static int[] reverse(int[] arr){
 		
 		int[] arrayNew = new int[arr.length];
@@ -47,6 +51,7 @@ public class Arrays1 {
 		return arrayNew;
 		
 	}
+	//replaces all the numbers with the new ones
 	public static int[] replaceAll(int[] arr, int old, int nw){
 		
 		for(int i = 0; i < arr.length; i++)
@@ -58,6 +63,7 @@ public class Arrays1 {
 		}
 		return arr;
 	}
+	//sorts all the elements in the array
 	public int[] sort(int[] arr){
 		
 		int[] arrayNew = new int[arr.length];
@@ -67,7 +73,7 @@ public class Arrays1 {
 		
 		return arrayNew;
 	}
-	
+	//checks the subsequance of the arrays
 	public boolean hasSubsequense(int[] arr, int[] sub){
 		
 		boolean boo = false;
@@ -75,22 +81,56 @@ public class Arrays1 {
 		int i;
 		int a;
 		
-		for(i = 0, a = 0; i < arr.length; i++)
+		for(i = 0; i < arr.length - sub.length + 1; i++)
 		{
-			if(arr[i] >= sub[a]){
+			
+			if(arr.length < sub.length){
+				boo = false;
+				break;
+	        }
+			for(a = 0; a < sub.length; a++){
 				
-				if(arr.length >= sub.length-i){
-					boo = true;
+				if(arr[i+a] != sub[a]){
+					
+					break;
 				}
 				else{
-					boo = false;
+					
+					if(a == sub.length - 1){
+						
+						boo = true;
+						return boo;
+					}
 				}
 			}
 		}
 		return boo;
 	}
-	/*
-	public int absdif(int[] arr1, int[] arr2){
+	// adds the difference to the array in a new array
+	public static int[] absdif(int[] arr1, int[] arr2){
 		
-	}*/
+		int[] arrayNew = new int[arr1.length];
+		
+		if(arr1.length == arr2.length){
+		
+			try{
+				
+				for(int i = 1; i < arr1.length; i++){
+					
+					arrayNew[i] = Math.abs(arr1[i] - arr2[i]);
+					
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.print("Wrong");
+			}
+		}
+		else{
+			System.out.print("Wrong");
+		}
+		return arrayNew;
+		
+		
+	}
 }
