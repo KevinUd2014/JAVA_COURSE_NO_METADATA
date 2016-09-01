@@ -10,20 +10,22 @@ public class Histogram {
 	
 	public static void main(String[] args) {
 		
-		int oneToTen = 0;
-		int elevenToTwenty = 0;
-		int twentyOneToThirty = 0;
-		int thirtyOneToForty = 0;
-		int fortyOneToFifty = 0;
-		int fiftyoneToSixty = 0;
-		int sixtyoneToSeventy = 0;
-		int seventyoneToEighty = 0;
-		int eightyoneToNinety = 0;
-		int ninetyoneToHundred = 0;
-		int underHundred = 0;
-		int overHundredToTwohundred = 0;
+		String oneToTen = "1-10:    |";
+		String elevenToTwenty = "11-20:   |";
+		String twentyOneToThirty = "21-30    |";
+		String thirtyOneToForty = "31-40:   |";
+		String fortyOneToFifty = "41-50:   |";
+		String fiftyoneToSixty = "51-60:   |";
+		String sixtyoneToSeventy = "61-70:   |";
+		String seventyoneToEighty = "71-80:   |";
+		String eightyoneToNinety = "81-90:   |";
+		String ninetyoneToHundred = "91-100:  |";
+		String underHundred = "1-100:   |";
+		String overHundredToTwohundred = "101-200: |";
 		
-		int[] histogram = new int[12];
+		String starOne= "";
+		
+		//int[] histogram = new int[12];
 		
 		String path = args[0].toString();
 		
@@ -50,57 +52,60 @@ public class Histogram {
 				if(inputScanner.hasNextInt()){
 					
 					if(currentNumber >= 1 && currentNumber <=10){
-						oneToTen += 1;
-						underHundred += 1;
-						histogram[1]++;
+						oneToTen += "*";
+						underHundred += "*";
+						/*for(int i = 0; i < oneToTen; i++){
+							starOne = convertToStars(oneToTen);
+						}*/
+						//histogram[1]++;
 					}
 					else if(currentNumber >= 11 && currentNumber <=20){
-						elevenToTwenty += 1;
-						underHundred += 1;
-						histogram[2]++;
+						elevenToTwenty += "*";
+						underHundred += "*";
+						//histogram[2]++;
 					}
 					else if(currentNumber >= 21 && currentNumber <=30){
-						twentyOneToThirty += 1;
-						underHundred += 1;
-						histogram[2]++;
+						twentyOneToThirty += "*";
+						underHundred += "*";
+						//histogram[2]++;
 					}
 					else if(currentNumber >= 31 && currentNumber <=40){
-						thirtyOneToForty += 1;
-						underHundred += 1;
-						histogram[2]++;
+						thirtyOneToForty += "*";
+						underHundred += "*";
+						//histogram[2]++;
 					}
 					else if(currentNumber >= 41 && currentNumber <=50){
-						fortyOneToFifty += 1;
-						underHundred += 1;
-						histogram[2]++;
+						fortyOneToFifty += "*";
+						underHundred += "*";
+						//histogram[2]++;
 					}
 					else if(currentNumber >= 51 && currentNumber <=60){
-						fiftyoneToSixty += 1;
-						underHundred += 1;
-						histogram[2]++;
+						fiftyoneToSixty += "*";
+						underHundred += "*";
+						//histogram[2]++;
 					}
 					else if(currentNumber >= 61 && currentNumber <=70){
-						sixtyoneToSeventy += 1;
-						underHundred += 1;
-						histogram[2]++;
+						sixtyoneToSeventy += "*";
+						underHundred += "*";
+						//histogram[2]++;
 					}
 					else if(currentNumber >= 71 && currentNumber <=80){
-						seventyoneToEighty += 1;
-						underHundred += 1;
-						histogram[2]++;
+						seventyoneToEighty += "*";
+						underHundred += "*";
+						//histogram[2]++;
 					}
 					else if(currentNumber >= 81 && currentNumber <=90){
-						eightyoneToNinety += 1;
-						underHundred += 1;
-						histogram[2]++;
+						eightyoneToNinety += "*";
+						underHundred += "*";
+						//histogram[2]++;
 					}
 					else if(currentNumber >= 91 && currentNumber <=100){
-						ninetyoneToHundred += 1;
-						underHundred += 1;
-						histogram[2]++;
+						ninetyoneToHundred += "*";
+						underHundred += "*";
+						//histogram[2]++;
 					}
 					else if(currentNumber >= 101 && currentNumber <= 200){
-						overHundredToTwohundred += 1;
+						overHundredToTwohundred += "*";
 					}
 					
 					//myList.add(inputScanner.nextInt());
@@ -108,13 +113,20 @@ public class Histogram {
 				}
 			}
 			System.out.print("Histogram\n\n");
-			System.out.printf("Interval 1-10 : %d\n\nInterval 11-20 : %d\n\nInterval 21-30 : %d"
-					+ "\n\nInterval 31-40 : %d\n\nInterval 41-50 : %d\n\nInterval 51-60 : %d"
-					+ "\n\nInterval 61-70 : %d\n\nInterval 71-80 : %d"
-					+ "\n\nInterval 81-90 : %d\n\nInterval 91-100 : %d", oneToTen, elevenToTwenty, twentyOneToThirty, thirtyOneToForty, fortyOneToFifty, 
-					fiftyoneToSixty, sixtyoneToSeventy, seventyoneToEighty, eightyoneToNinety, ninetyoneToHundred);
-			System.out.printf("\n\nIn the interval of 1-100: %d", underHundred);
-			System.out.printf("\n\nIn the interval of 101-200: %d", overHundredToTwohundred);
+			System.out.println(oneToTen);
+			System.out.println(elevenToTwenty);
+			System.out.println(twentyOneToThirty);
+			System.out.println(thirtyOneToForty);
+			System.out.println(fortyOneToFifty);
+			System.out.println(fiftyoneToSixty);
+			System.out.println(sixtyoneToSeventy);
+			System.out.println(seventyoneToEighty);
+			System.out.println(eightyoneToNinety);
+			System.out.println(ninetyoneToHundred);
+			
+			System.out.println(underHundred);
+			System.out.println(overHundredToTwohundred);
+			System.out.printf(starOne);
 		}
 		catch(Exception e){
 			System.out.print("Wrong, wrong");
