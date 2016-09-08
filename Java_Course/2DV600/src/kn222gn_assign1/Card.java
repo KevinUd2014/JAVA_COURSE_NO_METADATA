@@ -4,7 +4,6 @@ public class Card {
 	
 	private Suit suit;
 	private Rank rank;
-	private int valueOfDeck;
 	
 	public enum Rank{
 		
@@ -38,11 +37,11 @@ public class Card {
 	}
 	
 	//Getters
-	public Rank rank(){
+	public Rank getRank(){
 		
 		return rank;
 	}
-	public Suit suit(){
+	public Suit getSuit(){
 			
 		return suit;
 	}

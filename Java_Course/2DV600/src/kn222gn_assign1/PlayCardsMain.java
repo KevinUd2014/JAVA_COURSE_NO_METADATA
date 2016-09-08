@@ -13,7 +13,7 @@ public class PlayCardsMain {
 		//loops out 6 cards from the deck
 		for (int i = 1; i < 6; i++){
 			Card card = deckClass.takeACard();
-			System.out.println("\n" + card.rank() + " of " + card.suit());
+			System.out.println("\n" + card.getRank() + " of " + card.getSuit());
 			System.out.println("\nCards left in the deck: " + deckClass.sizeOfDeck());
 		}
 	}
