@@ -13,12 +13,12 @@ public class Node {
 
 	public Object getObject() {
 		// TODO Auto-generated method stub
-		return null;
+		return object;
 	}
 
 	public Node getNext() {
 		// TODO Auto-generated method stub
-		return null;
+		return nextElement;
 	}
 
 }

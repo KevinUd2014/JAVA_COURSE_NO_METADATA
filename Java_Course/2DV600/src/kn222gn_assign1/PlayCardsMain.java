@@ -11,7 +11,7 @@ public class PlayCardsMain {
 		System.out.print("\nThe deck is made out of: " + deckClass.sizeOfDeck() + " playing cards.\n");
 		
 		//loops out 6 cards from the deck
-		for (int i = 1; i < 6; i++){
+		for (int i = 0; i < 52; i++){
 			Card card = deckClass.takeACard();
 			System.out.println("\n" + card.getRank() + " of " + card.getSuit());
 			System.out.println("\nCards left in the deck: " + deckClass.sizeOfDeck());

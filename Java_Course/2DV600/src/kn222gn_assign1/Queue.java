@@ -40,34 +40,48 @@ public class Queue implements QueueInterface {
 	}
 	
 	public Object dequeue() throws IndexOutOfBoundsException {
-		try{
+
+		if(isEmpty()){
 			
-			if(isEmpty()){
-				
-				throw new IndexOutOfBoundsException();
-			}
-			else{
-				
-				Node first = head;
-				
-				head = first.getNext();
-				
-				return first.getObject();
-			}
+			throw new IndexOutOfBoundsException(" Wrong with the dequeue it's empty ");
 		}
-		catch(Exception e){
-			e.getMessage();
+		else{
+			
+			Node first = head;
+			
+			//Sets the next in line to the first.
+			head = first.getNext();
+			
+			//decrease the size by one.
+			size -= 1;
+			
+			//returns the new first object
+			return first.getObject();
 		}
-		
-		return null;
 	}
 	
 	public Object first() throws IndexOutOfBoundsException {
-		return null;
+		
+		if(isEmpty()){
+			
+			throw new IndexOutOfBoundsException(" Wrong with the First function it's empty ");
+		}
+		else{
+			
+			return head.getObject();
+		}
 	}
 
 	public Object last() throws IndexOutOfBoundsException {
-		return null;
+
+		if(isEmpty()){
+			
+			throw new IndexOutOfBoundsException(" Wrong with the First function it's empty ");
+		}
+		else{
+			
+			return tail.getObject();
+		}
 	}
 	
 	public boolean contains(Object o) {
