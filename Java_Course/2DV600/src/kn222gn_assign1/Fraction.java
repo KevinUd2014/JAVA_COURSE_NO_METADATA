@@ -27,15 +27,9 @@ public class Fraction {
 		
 		Fraction addedFraction;
 		
-		if(getNumerator() == newFraction.getDenominator()){
-			//returns the new added fraction
-			addedFraction = new Fraction(newFraction.getNumerator() + getNumerator(), getDenominator());
-		}
-		else{
-			//returns the added numerators and denumerators added
-			addedFraction = new Fraction(getNumerator() * newFraction.getDenominator() + newFraction.getNumerator() * getDenominator(), 
-					getDenominator() * newFraction.getDenominator());
-		}
+		//adds the fraction
+		addedFraction = new Fraction(getNumerator() * newFraction.getDenominator() + newFraction.getNumerator() * getDenominator(), 
+				getDenominator() * newFraction.getDenominator());
 		
 		return addedFraction;
 	}
@@ -43,15 +37,9 @@ public class Fraction {
 		
 		Fraction subtractedFraction;
 		
-		if(getNumerator() == newFraction.getDenominator()){
-			//returns the new subtracted fraction
-			subtractedFraction = new Fraction(newFraction.getNumerator() - getNumerator(), getDenominator());
-		}
-		else{
-			//returns the subtracted numerators and denumerators = -
-			subtractedFraction = new Fraction(getNumerator() * newFraction.getDenominator() - newFraction.getNumerator() * getDenominator(), 
-					getDenominator() * newFraction.getDenominator());
-		}
+		//subtracts the fraction
+		subtractedFraction = new Fraction(getNumerator() * newFraction.getDenominator() - newFraction.getNumerator() * getDenominator(), 
+				getDenominator() * newFraction.getDenominator());
 		
 		return subtractedFraction;
 	}

@@ -4,7 +4,12 @@ import java.util.Iterator;
 
 public class Queue implements QueueInterface {
 	
-	@Override
+	public int size = 0;
+	
+	public Node head;
+	
+	public Node tail;
+	
 	public int size() {
 		
 		int newSize = 0;
@@ -12,36 +17,63 @@ public class Queue implements QueueInterface {
 		return newSize;
 	}
 	
-	@Override
-   public boolean isEmpty() {
-		return false;
+    public boolean isEmpty() {
+		
+		return size == 0;
 	}
 	
-	@Override
 	public void enqueue(Object element) {
+		
+		//code from the lecture;
+		if(head == null){
+			
+			head = new Node(element);
+			
+			tail = head;
+		}
+		else{
+			
+			tail.nextElement = new Node(element);
+			tail = tail.nextElement;
+		}
+		size += 1;
 	}
 	
-	@Override
 	public Object dequeue() throws IndexOutOfBoundsException {
+		try{
+			
+			if(isEmpty()){
+				
+				throw new IndexOutOfBoundsException();
+			}
+			else{
+				
+				Node first = head;
+				
+				head = first.getNext();
+				
+				return first.getObject();
+			}
+		}
+		catch(Exception e){
+			e.getMessage();
+		}
+		
 		return null;
 	}
 	
-	@Override
 	public Object first() throws IndexOutOfBoundsException {
 		return null;
 	}
 
-	@Override
 	public Object last() throws IndexOutOfBoundsException {
 		return null;
 	}
 	
-	@Override
 	public boolean contains(Object o) {
 		return false;
 	}
 	
-	@Override
 	public Iterator iterator() {
 		return null;
 	}
