@@ -12,9 +12,9 @@ public class Queue implements QueueInterface {
 	
 	public int size() {
 		
-		int newSize = 0;
+		//int newSize = 0;
 		
-		return newSize;
+		return size;// made an error here by using another size
 	}
 	
     public boolean isEmpty() {
@@ -85,10 +85,47 @@ public class Queue implements QueueInterface {
 	}
 	
 	public boolean contains(Object o) {
+		
+		Iterator<Object> iterator = iterator();
+		
+		while(iterator.hasNext()){
+			
+			if(o == iterator.next()){
+				
+				return true;
+			}
+		}
+			
+			
 		return false;
 	}
 	
 	public Iterator iterator() {
-		return null;
+		
+		return new IteratorClass();
 	}
+	
+	public class IteratorClass implements Iterator<Object> {// had an integer first but changed to object.
+        
+		public Node node = head;
+        
+        public boolean hasNext() {
+        	
+            return node != null;
+        }
+        
+        public Object next() {
+        	
+        	if(node != null){
+        		//got this bit of code from the lecture
+        		 Object val = node.getObject();
+                 node = node.getNext();
+                 
+                 return val;
+        	}
+        	else{
+        		throw new IndexOutOfBoundsException("Wrong with the function next in IteratorClass");
+        	}
+        }
+}
 }
