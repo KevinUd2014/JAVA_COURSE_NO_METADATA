@@ -102,6 +102,7 @@ public class Queue implements QueueInterface {
 	
 	public Iterator iterator() {
 		
+		//returns a new instance of the Iteratorclass
 		return new IteratorClass();
 	}
 	
