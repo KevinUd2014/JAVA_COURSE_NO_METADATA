@@ -1,4 +1,4 @@
-package kn222gn_assign1;
+package kn222gn_assign1_FractionAssingment;
 
 public class Fraction {
 	
