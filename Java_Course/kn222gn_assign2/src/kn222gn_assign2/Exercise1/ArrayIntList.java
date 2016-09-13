@@ -15,6 +15,7 @@ public class ArrayIntList extends AbstractIntCollection implements IntList{
             values[size()] = n;
             size++;
             if(size() == values.length){
+
                 resize();
             }
         }catch(Exception e){
@@ -26,21 +27,65 @@ public class ArrayIntList extends AbstractIntCollection implements IntList{
     @Override
     public void addAt(int n, int index) throws IndexOutOfBoundsException {
         //adds at the specific index
+        try{
 
+            size++;
+            int i;
+            if(size() == values.length){
+
+                resize();
+            }
+
+            for(i = size()-1; i > index; i -= 1){
+
+                values[i] = values[i-1];
+            }
+
+            values[index] = n;
+
+        }catch(Exception e){
+
+            System.out.println(e.fillInStackTrace());
+        }
     }
 
     @Override
     public void remove(int index) throws IndexOutOfBoundsException {
         //Removes an index
+
+        try{
+
+            for(int i = index; i < size()-1; i += 1){
+
+                values[i] = values[i+1];
+            }
+            size--;
+        }catch(Exception e){
+
+            System.out.println(e.fillInStackTrace());
+        }
     }
 
     @Override
     public int get(int index) throws IndexOutOfBoundsException {
-        return 0;
+
+        if(index < 0 || index > size()){
+            throw new IndexOutOfBoundsException();
+        }
+
+        return values[index];
     }
 
     @Override
     public int indexOf(int n) {
-        return 0;
+
+        for(int i = 0; i < size(); i++){
+
+            if(values[i] == n){
+
+                return i;
+            }
+        }
+        return -1;
     }
 }
