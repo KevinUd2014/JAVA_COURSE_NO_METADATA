@@ -70,7 +70,6 @@ public class FerryNewSystem implements Ferry{
         vehicles.clear();
         passenger.clear();
         //usedSpace = 0;
-
     }
 
     @Override
@@ -97,7 +96,6 @@ public class FerryNewSystem implements Ferry{
 
             return false;
         }
-
         else{
 
             return true;
