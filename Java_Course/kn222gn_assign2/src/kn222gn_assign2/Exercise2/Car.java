@@ -5,12 +5,21 @@ package kn222gn_assign2.Exercise2;
  */
 public class Car extends Vehicle {
 
-    int maxNumberofpassengers = 4;
-    public Car(){
+    private int maxNumberofpassengers = 4;
 
-        if(noPassangers > maxNumberofpassengers){
+    protected Car(int numbersOfPassengers){
 
-            
+        if(numberOfPassengers > maxNumberofpassengers){
+
+            setNumberOfPassengers(numbersOfPassengers);
+            setCostPerPassenger(15);
+            setPriceForVehicle(100);
+            setSpace(1.0);
+            setTypeOfVehicle("Car");
+        }
+        else{
+
+            System.out.println(" The amount of passengers in the car is not allowed ");
         }
     }
 }

@@ -5,26 +5,50 @@ package kn222gn_assign2.Exercise2;
  */
 public class Vehicle {
 
-    int space;
-    int noPassangers;
-    int costPerPassenger;
-    int feeForVehicle;
+    protected double space;
+    protected int numberOfPassengers;
+    protected int costPerPassenger;
+    protected int feeForVehicle;
+    protected String typeOfVehicle;
 
-    public void setPriceForVehicle(int price){
+    protected void setPriceForVehicle(int pricePerVehicle){
 
-        feeForVehicle = price;
+        feeForVehicle = pricePerVehicle;
     }
-    public void setNumberOfPassengers(int numberOfPassengers){
+    protected void setNumberOfPassengers(int numberOfPassengers){
 
-        noPassangers = numberOfPassengers;
+        this.numberOfPassengers = numberOfPassengers;
     }
-    public void setSpace(int newSpace){
+    protected void setSpace(double spaceForVehicle){
 
-        space = newSpace;
+        space = spaceForVehicle;
     }
-    public void setCostPerPassenger(int costPassenger){
+    protected void setCostPerPassenger(int costPerPassenger){
 
-        costPerPassenger = costPassenger;
+        this.costPerPassenger = costPerPassenger;
     }
+    protected void setTypeOfVehicle(String typeOfVehicle){
 
+        this.typeOfVehicle = typeOfVehicle;
+    }
+    protected double getSpace(){
+
+        return space;
+    }
+    protected int getCostPerPassenger(){
+
+        return costPerPassenger;
+    }
+    protected int getFeeForVehicle(){
+
+        return feeForVehicle;
+    }
+    protected int getNumberOfPassengers(){
+
+        return numberOfPassengers;
+    }
+    protected String getTypeOfVehicle(){
+
+        return typeOfVehicle;
+    }
 }

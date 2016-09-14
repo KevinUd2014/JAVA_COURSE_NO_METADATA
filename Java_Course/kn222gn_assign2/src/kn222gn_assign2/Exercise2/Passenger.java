@@ -7,5 +7,13 @@ public class Passenger {
 
     int cost;
 
+    protected Passenger(int _cost){
+
+        cost = _cost;
+    }
+    protected int getCost(){
+
+        return cost;
+    }
 
 }
