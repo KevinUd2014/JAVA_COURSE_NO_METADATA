@@ -34,7 +34,13 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
     @Override
     public int pop() throws IndexOutOfBoundsException {
 
+        if(size() == 0){
+
+            throw new IndexOutOfBoundsException();
+        }
+
         int tempValue = values[0];
+
         try{
 
             for(int i = 0; i < size()-1; i += 1){
@@ -52,6 +58,12 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
 
     @Override
     public int peek() throws IndexOutOfBoundsException {
-        return 0;
+
+        if(size() == 0){
+
+            throw new IndexOutOfBoundsException();
+        }
+
+        return values[0];
     }
 }
