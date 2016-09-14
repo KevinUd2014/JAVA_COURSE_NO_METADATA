@@ -10,6 +10,11 @@ public class FerryNewSystem implements Ferry{
     private int totalNumberOfPassengers = 200;
     private int totalNumberOfCars = 40;
 
+    private int sizeOfCar = 0;
+    private int amountOfMoney = 0;
+
+    
+
     @Override
     public int countPassengers() {
 
