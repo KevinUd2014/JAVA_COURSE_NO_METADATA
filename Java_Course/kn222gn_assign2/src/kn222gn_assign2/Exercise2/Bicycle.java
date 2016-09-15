@@ -1,5 +1,7 @@
 package kn222gn_assign2.Exercise2;
 
+import java.util.List;
+
 /**
  * Created by Golde on 2016-09-14.
  */
@@ -9,12 +11,13 @@ public class Bicycle extends Vehicle{
 
     protected Bicycle(int numbersOfPassengers){
 
+        super(numbersOfPassengers);
+
         if(numbersOfPassengers <= maxNumberofpassengers){
 
             setNumberOfPassengers(numbersOfPassengers);
             setPriceForVehicle(40);
             setSpace(0.2);
-            setTypeOfVehicle("Bicycle");
         }
         else{
 
@@ -26,10 +29,10 @@ public class Bicycle extends Vehicle{
 
         return space;
     }
-    public String toString(){
 
-        String text = " type: " + getTypeOfVehicle() + " Space: "+ getSpace() + " Number of passengers: " + getNumberOfPassengers() + " Fee for vehicle: " + getFeeForVehicle();
-
-        return text;
+    @Override
+    protected List<Passenger> getAllPassengers()
+    {
+        return super.getAllPassengers();
     }
 }

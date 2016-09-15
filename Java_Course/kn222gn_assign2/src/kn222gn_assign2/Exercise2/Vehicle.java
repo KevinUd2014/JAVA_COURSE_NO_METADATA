@@ -13,20 +13,18 @@ public abstract class Vehicle {
     protected int costPerPassenger;
     protected int cost;
     protected int feeForVehicle;
-    protected String typeOfVehicle;
     protected List<Passenger> passengerList;
 
     protected Vehicle(){
 
     }
-
     protected Vehicle(int numOfPassengers)
     {
         passengerList = new LinkedList<Passenger>();
 
         for(int i = 0; i < numOfPassengers; i++)
         {
-            passengerList.add(new Passenger());
+            passengerList.add(new Passenger(costPerPassenger));
         }
     }
     //*setters
@@ -35,10 +33,6 @@ public abstract class Vehicle {
     protected void setPriceForVehicle(int pricePerVehicle){
 
         feeForVehicle = pricePerVehicle;
-    }
-    protected void setCost(int cost){
-
-        this.cost = cost;
     }
     protected void setNumberOfPassengers(int numberOfPassengers){
 
@@ -52,18 +46,10 @@ public abstract class Vehicle {
 
         this.costPerPassenger = costPerPassenger;
     }
-    protected void setTypeOfVehicle(String typeOfVehicle){
-
-        this.typeOfVehicle = typeOfVehicle;
-    }
 
     //list loop
     protected List<Passenger> getAllPassengers(){
 
-       /* for(int i = 0; i < getNumberOfPassengers(); i += 1){
-
-            passengerList.add(new Passenger(getCostPerPassenger()));
-        }*/
         return passengerList;
     }
 
@@ -74,24 +60,8 @@ public abstract class Vehicle {
 
         return space;
     }
-    protected int getCost(){
-
-        return cost;
-    }
-    protected int getCostPerPassenger(){
-
-        return costPerPassenger;
-    }
     protected int getFeeForVehicle(){
 
         return feeForVehicle;
-    }
-    protected int getNumberOfPassengers(){
-
-        return _numberOfPassengers;
-    }
-    protected String getTypeOfVehicle(){
-
-        return typeOfVehicle;
     }
 }

@@ -10,19 +10,19 @@ public class FerryNewSystem implements Ferry{
 
     private int totalNumberOfPassengers = 200;
     private int totalNumberOfSpace = 40;
-    //private int usedSpace = 0;
 
     private ArrayList<Vehicle> vehicles;
     private ArrayList<Passenger> passenger;
 
-    private int sizeOfCar = 0;
-    private int amountOfMoney = 0;
+    private int amountOfMoney;
 
     public FerryNewSystem(){
 
         //creates the new array lists
         vehicles = new ArrayList<>();
         passenger = new ArrayList<>();
+
+        amountOfMoney = 0;
     }
 
     @Override
@@ -56,15 +56,18 @@ public class FerryNewSystem implements Ferry{
     @Override
     public void embark(Vehicle v) {
 
-        if(hasSpaceFor(v)){// && passenger.size() + v.getNumberOfPassengers() <= totalNumberOfPassengers){
+        if(hasSpaceFor(v)){
 
             vehicles.add(v);
-            amountOfMoney += v.getFeeForVehicle();
+            this.amountOfMoney += v.getFeeForVehicle();
 
             for(Passenger passenger : v.getAllPassengers()){
 
-                embark(passenger);
+                embark(new Passenger());//har ett error här den räknar inte med alla passagerare i bilens kostnader
             }
+        }
+        else {
+            System.err.println("\n Ferry is now full ");
         }
     }
 
@@ -77,6 +80,9 @@ public class FerryNewSystem implements Ferry{
             this.amountOfMoney += p.getCost();
             this.passenger.add(p);
         }
+        else {
+            System.err.println("\n Ferry is now full ");
+        }
 
     }
 
@@ -86,6 +92,7 @@ public class FerryNewSystem implements Ferry{
         //Clears all the lists with all the vehicles and passengers
         vehicles.clear();
         passenger.clear();
+        amountOfMoney = 0;
         //usedSpace = 0;
     }
 
@@ -123,7 +130,19 @@ public class FerryNewSystem implements Ferry{
     @Override
     public Iterator<Vehicle> iterator() {
 
-        return null;
+        return new Iterator<Vehicle>() {
+
+            private int countVehicles = 0;
+
+            public boolean hasNext(){
+
+                return countVehicles<vehicles.size();
+            }
+            public Vehicle next(){
+
+                return vehicles.get(countVehicles++);
+            }
+        };
     }
 
     public String toString(){

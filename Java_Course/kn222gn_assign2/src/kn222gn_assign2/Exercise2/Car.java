@@ -10,19 +10,17 @@ public class Car extends Vehicle {
     private int maxNumberofpassengers = 4;
 
     protected Car(int numbersOfPassengers){
-        super(numbersOfPassengers);
 
+        super(numbersOfPassengers);
 
         //passengerList = new LinkedList<Passenger>();
 
         if(numbersOfPassengers <= maxNumberofpassengers){
 
-
             setNumberOfPassengers(numbersOfPassengers);
             setCostPerPassenger(15);
             setPriceForVehicle(100);
             setSpace(1.0);
-            setTypeOfVehicle("Car");
         }
         else{
 
@@ -33,6 +31,12 @@ public class Car extends Vehicle {
     @Override
     protected double getSpace() {
         return space;
+    }
+
+    @Override
+    protected int getFeeForVehicle(){
+
+        return feeForVehicle;
     }
 
     @Override

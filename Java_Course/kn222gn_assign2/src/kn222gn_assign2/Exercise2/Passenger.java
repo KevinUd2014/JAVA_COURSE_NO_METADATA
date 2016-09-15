@@ -5,11 +5,11 @@ package kn222gn_assign2.Exercise2;
  */
 public class Passenger {
 
-    int cost;
+    private int cost;
 
-    protected Passenger(){
+    public Passenger(){
 
-        cost = 20;
+        this.cost = 20;
     }
 
     protected Passenger(int _cost){
@@ -18,7 +18,7 @@ public class Passenger {
     }
     protected int getCost(){
 
-        return cost;
+        return this.cost;
     }
 
 }
