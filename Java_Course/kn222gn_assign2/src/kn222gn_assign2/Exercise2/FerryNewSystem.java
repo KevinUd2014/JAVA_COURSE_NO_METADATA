@@ -61,9 +61,9 @@ public class FerryNewSystem implements Ferry{
             vehicles.add(v);
             this.amountOfMoney += v.getFeeForVehicle();
 
-            for(Passenger passenger : v.getAllPassengers()){
+            for(Passenger _passenger : v.getAllPassengers()){
 
-                embark(new Passenger());//har ett error här den räknar inte med alla passagerare i bilens kostnader
+                embark(new Passenger(v.costPerPassenger));//har ett error här den räknar inte med alla passagerare i bilens kostnader
             }
         }
         else {
