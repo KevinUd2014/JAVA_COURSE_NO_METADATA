@@ -9,7 +9,7 @@ public class Bicycle extends Vehicle{
 
     protected Bicycle(int numbersOfPassengers){
 
-        if(numberOfPassengers > maxNumberofpassengers){
+        if(numbersOfPassengers <= maxNumberofpassengers){
 
             setNumberOfPassengers(numbersOfPassengers);
             setPriceForVehicle(40);
@@ -20,5 +20,16 @@ public class Bicycle extends Vehicle{
 
             System.out.println(" The amount of passengers in the Bicycle is not allowed ");
         }
+    }
+    @Override
+    protected double getSpace() {
+
+        return space;
+    }
+    public String toString(){
+
+        String text = " type: " + getTypeOfVehicle() + " Space: "+ getSpace() + " Number of passengers: " + getNumberOfPassengers() + " Fee for vehicle: " + getFeeForVehicle();
+
+        return text;
     }
 }

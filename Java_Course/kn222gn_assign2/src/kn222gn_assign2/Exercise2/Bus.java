@@ -1,4 +1,5 @@
 package kn222gn_assign2.Exercise2;
+import java.util.LinkedList;
 
 /**
  * Created by Golde on 2016-09-14.
@@ -8,8 +9,9 @@ public class Bus extends Vehicle {
     private int maxNumberofpassengers = 20;
 
     protected Bus(int numbersOfPassengers){
+        passengerList = new LinkedList<Passenger>();
 
-        if(numberOfPassengers > maxNumberofpassengers){
+        if(numbersOfPassengers <= maxNumberofpassengers){
 
             setNumberOfPassengers(numbersOfPassengers);
             setCostPerPassenger(10);
@@ -21,5 +23,10 @@ public class Bus extends Vehicle {
 
             System.out.println(" The amount of passengers in the Bus is not allowed ");
         }
+    }
+
+    @Override
+    protected double getSpace() {
+        return space;
     }
 }

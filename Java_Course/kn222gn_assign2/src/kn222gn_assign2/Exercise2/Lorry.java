@@ -9,7 +9,7 @@ public class Lorry extends Vehicle{
 
     public Lorry(int numbersOfPassengers){
 
-        if(numberOfPassengers > maxNumberofpassengers){
+        if(numbersOfPassengers <= maxNumberofpassengers){
 
             setNumberOfPassengers(numbersOfPassengers);
             setCostPerPassenger(15);
@@ -21,5 +21,10 @@ public class Lorry extends Vehicle{
 
             System.out.println(" The amount of passengers in the lorry is not allowed ");
         }
+    }
+
+    @Override
+    protected double getSpace() {
+        return space;
     }
 }

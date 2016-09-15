@@ -41,7 +41,7 @@ public class FerryNewSystem implements Ferry{
         for(Vehicle vehicle : this.vehicles){
 
             sum += vehicle.getSpace();
-            sum = Math.round(sum);
+            //sum = Math.round(sum);
         }
         return (int)sum;
     }
@@ -56,10 +56,27 @@ public class FerryNewSystem implements Ferry{
     @Override
     public void embark(Vehicle v) {
 
+        if(hasSpaceFor(v)){// && passenger.size() + v.getNumberOfPassengers() <= totalNumberOfPassengers){
+
+            vehicles.add(v);
+            amountOfMoney += v.getFeeForVehicle();
+
+            for(Passenger passenger : v.getAllPassengers()){
+
+                embark(passenger);
+            }
+        }
     }
 
     @Override
     public void embark(Passenger p) {
+
+        //checks if there is any room left.
+        if(hasRoomFor(p)){
+
+            this.amountOfMoney += p.getCost();
+            this.passenger.add(p);
+        }
 
     }
 
@@ -75,6 +92,7 @@ public class FerryNewSystem implements Ferry{
     @Override
     public boolean hasSpaceFor(Vehicle v) {
 
+        //if vehicle already exists
         if(vehicles.contains(v)){
 
             return false;
