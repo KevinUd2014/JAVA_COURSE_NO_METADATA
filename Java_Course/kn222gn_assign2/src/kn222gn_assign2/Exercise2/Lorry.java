@@ -7,13 +7,14 @@ import java.util.List;
  */
 public class Lorry extends Vehicle{
 
-    private int maxNumberofpassengers = 2;
+    //private int maxNumberofpassengers = 2;
 
     public Lorry(int numbersOfPassengers){
 
         super(numbersOfPassengers);
 
-        if(numbersOfPassengers <= maxNumberofpassengers){
+        maxNumberOfPassengers = 2;
+        if(numbersOfPassengers <= maxNumberOfPassengers){
 
             setNumberOfPassengers(numbersOfPassengers);
             setCostPerPassenger(15);
@@ -22,7 +23,7 @@ public class Lorry extends Vehicle{
         }
         else{
 
-            System.out.println(" The amount of passengers in the lorry is not allowed ");
+            System.err.println(" The amount of passengers in the lorry is not allowed ");
         }
     }
 

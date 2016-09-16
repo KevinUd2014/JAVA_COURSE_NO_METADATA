@@ -57,13 +57,19 @@ public class FerryNewSystem implements Ferry{
     public void embark(Vehicle v) {
 
         if(hasSpaceFor(v)){
+            if(v.getAllPassengers().size() <= v.maxNumberOfPassengers){
+                vehicles.add(v);
+                this.amountOfMoney += v.getFeeForVehicle();
 
-            vehicles.add(v);
-            this.amountOfMoney += v.getFeeForVehicle();
+                for(Passenger _passenger : v.getAllPassengers()){
 
-            for(Passenger _passenger : v.getAllPassengers()){
 
-                embark(new Passenger(v.costPerPassenger));//har ett error här den räknar inte med alla passagerare i bilens kostnader
+                    embark(new Passenger(v.costPerPassenger));
+                }
+            }
+            else{
+
+                System.err.println("");
             }
         }
         else {
@@ -149,6 +155,16 @@ public class FerryNewSystem implements Ferry{
 
         String text = "";
 
+        text += " _________________________\n";
+        text += " Information from the ferry\n";
+        text += " _________________________\n";
+        text += " Vehicles on ship: " + vehicles.size() + "\n";
+        text += " Passengers on ship: " + passenger.size() + "/" + totalNumberOfPassengers + "\n";
+        text += " Space occupied: " + countVehicleSpace() + "/" + totalNumberOfSpace + "\n";
+        text += " Total income: " + amountOfMoney + "\n";
+        text += " _________________________\n";
+        text += " Vehicle details \n";
+        text += "";
         return text;
     }
 }

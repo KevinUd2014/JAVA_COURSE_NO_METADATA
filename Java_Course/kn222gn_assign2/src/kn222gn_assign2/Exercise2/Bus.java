@@ -7,13 +7,13 @@ import java.util.List;
  */
 public class Bus extends Vehicle {
 
-    private int maxNumberofpassengers = 20;
+    //private int maxNumberofpassengers = 20;
 
     protected Bus(int numbersOfPassengers){
 
         super(numbersOfPassengers);
-
-        if(numbersOfPassengers <= maxNumberofpassengers){
+        maxNumberOfPassengers = 20;
+        if(numbersOfPassengers <= maxNumberOfPassengers){
 
             setNumberOfPassengers(numbersOfPassengers);
             setCostPerPassenger(10);
@@ -22,7 +22,7 @@ public class Bus extends Vehicle {
         }
         else{
 
-            System.out.println(" The amount of passengers in the Bus is not allowed ");
+            System.err.println(" The amount of passengers in the Bus is not allowed ");
         }
     }
 

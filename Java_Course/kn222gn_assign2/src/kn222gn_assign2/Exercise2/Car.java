@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Car extends Vehicle {
 
-    private int maxNumberofpassengers = 4;
+    //private int maxNumberOfPassengers = 1; = 4;
 
     protected Car(int numbersOfPassengers){
 
@@ -15,7 +15,8 @@ public class Car extends Vehicle {
 
         //passengerList = new LinkedList<Passenger>();
 
-        if(numbersOfPassengers <= maxNumberofpassengers){
+        maxNumberOfPassengers = 4;
+        if(numbersOfPassengers <= maxNumberOfPassengers){
 
             setNumberOfPassengers(numbersOfPassengers);
             setCostPerPassenger(15);
@@ -24,7 +25,7 @@ public class Car extends Vehicle {
         }
         else{
 
-            System.out.println(" The amount of passengers in the car is not allowed ");
+            System.err.println(" The amount of passengers in the car is not allowed ");
         }
     }
 

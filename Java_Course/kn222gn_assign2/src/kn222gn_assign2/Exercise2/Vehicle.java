@@ -14,6 +14,7 @@ public abstract class Vehicle {
     protected int cost;
     protected int feeForVehicle;
     protected List<Passenger> passengerList;
+    protected int maxNumberOfPassengers;
 
     protected Vehicle(){
 

@@ -9,14 +9,17 @@ public class FerryMain {
 
         FerryNewSystem ferrySystem = new FerryNewSystem();
 
+        /*Bus b = new Bus(21);
+        ferrySystem.embark(b);
+*/
         ferrySystem.embark(new Car(4));
-        //ferrySystem.embark(new Car(4));
+        ferrySystem.embark(new Car(4));
 
         //It won't count the bicycles if it's less than 5 of them!
         ferrySystem.embark(new Bicycle(1));
-        //ferrySystem.embark(new Bicycle(1));
-        //ferrySystem.embark(new Bicycle(1));
-        //ferrySystem.embark(new Bicycle(1));
+        ferrySystem.embark(new Bicycle(1));
+        ferrySystem.embark(new Bicycle(1));
+        ferrySystem.embark(new Bicycle(1));
         ferrySystem.embark(new Bicycle(1));
 
         ferrySystem.embark(new Bus(20));
@@ -31,7 +34,7 @@ public class FerryMain {
         System.out.println("\n Count passengers: " + ferrySystem.countPassengers() + "        //Should be 57 ");
         System.out.println("\n Counting vehicle spaces: " + ferrySystem.countVehicleSpace() + " //Should be 27 ");
 
-        System.out.println("\n Counting the money earned: " + ferrySystem.countMoney() + " Should be 2130");
+        System.out.println("\n Counting the money earned: " + ferrySystem.countMoney() + " Should be 1980");
 
         System.out.println("\n\n Will now add one more bus (11 passengers) and one car and 2 other passengers");
 
@@ -46,16 +49,20 @@ public class FerryMain {
 
         ferrySystem.disembark();
 
-        ferrySystem.embark(new Car(0));
-        ferrySystem.embark(new Car(0));
-        ferrySystem.embark(new Bus(1));
-        //ferrySystem.embark(new Passenger());
+        ferrySystem.embark(new Car(2));
+        ferrySystem.embark(new Car(2));
+        ferrySystem.embark(new Bus(0));
+        ferrySystem.embark(new Passenger());
 
 
         System.out.println("\n Count passengers: " + ferrySystem.countPassengers() + "        //Should be 70 ");
         System.out.println("\n Counting vehicle spaces: " + ferrySystem.countVehicleSpace() + " //Should be 31 ");
 
         System.out.println("\n Counting the money earned: " + ferrySystem.countMoney() + " Should be 410");
+
+
+        //print the to string for the info from
+        System.out.println(ferrySystem.toString());
 
     }
 }

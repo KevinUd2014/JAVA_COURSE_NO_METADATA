@@ -7,13 +7,14 @@ import java.util.List;
  */
 public class Bicycle extends Vehicle{
 
-    private int maxNumberofpassengers = 1;
+   // private int maxNumberOfPassengers = 1;
 
     protected Bicycle(int numbersOfPassengers){
 
         super(numbersOfPassengers);
 
-        if(numbersOfPassengers <= maxNumberofpassengers){
+        maxNumberOfPassengers = 1;
+        if(numbersOfPassengers <= maxNumberOfPassengers){
 
             setNumberOfPassengers(numbersOfPassengers);
             setPriceForVehicle(40);
@@ -21,7 +22,7 @@ public class Bicycle extends Vehicle{
         }
         else{
 
-            System.out.println(" The amount of passengers in the Bicycle is not allowed ");
+            System.err.println(" The amount of passengers in the Bicycle is not allowed ");
         }
     }
     @Override
