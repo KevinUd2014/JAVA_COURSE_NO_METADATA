@@ -26,6 +26,15 @@ public class Lorry extends Vehicle{
             System.err.println(" The amount of passengers in the lorry is not allowed ");
         }
     }
+    @Override
+    public String toString(){
+        String text= "";
+
+        text += "Lorry: " + getSpace() + " How many passengers: " + getPassengerPerVehicle();
+
+        return text;
+
+    }
 
     @Override
     protected double getSpace() {

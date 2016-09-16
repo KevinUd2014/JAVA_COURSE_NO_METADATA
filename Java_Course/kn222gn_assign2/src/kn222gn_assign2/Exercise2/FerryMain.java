@@ -55,11 +55,25 @@ public class FerryMain {
         ferrySystem.embark(new Passenger());
 
 
-        System.out.println("\n Count passengers: " + ferrySystem.countPassengers() + "        //Should be 70 ");
-        System.out.println("\n Counting vehicle spaces: " + ferrySystem.countVehicleSpace() + " //Should be 31 ");
+        System.out.println("\n Count passengers: " + ferrySystem.countPassengers() + "        //Should be 5 ");
+        System.out.println("\n Counting vehicle spaces: " + ferrySystem.countVehicleSpace() + " //Should be 6 ");
 
         System.out.println("\n Counting the money earned: " + ferrySystem.countMoney() + " Should be 410");
 
+
+        ferrySystem.disembark();
+
+        System.out.println("\n This will make the ferry full ");
+
+        for(int i = 0; i < 39; i++){
+
+            ferrySystem.embark(new Car(2));
+        }
+        ferrySystem.embark(new Bicycle(1));
+        ferrySystem.embark(new Car(2));
+
+
+       // ferrySystem.embark(new Car(2));
 
         //print the to string for the info from
         System.out.println(ferrySystem.toString());

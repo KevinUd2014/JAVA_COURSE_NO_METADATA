@@ -25,6 +25,15 @@ public class Bus extends Vehicle {
             System.err.println(" The amount of passengers in the Bus is not allowed ");
         }
     }
+    @Override
+    public String toString(){
+        String text= "";
+
+        text += "Bus: " + getSpace() + " How many passengers: " + getPassengerPerVehicle();
+
+        return text;
+
+    }
 
     @Override
     protected double getSpace() {

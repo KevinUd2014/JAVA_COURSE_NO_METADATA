@@ -8,8 +8,8 @@ import java.util.Iterator;
  */
 public class FerryNewSystem implements Ferry{
 
-    private int totalNumberOfPassengers = 200;
-    private int totalNumberOfSpace = 40;
+    private int totalNumberOfPassengers;
+    private int totalNumberOfSpace;
 
     private ArrayList<Vehicle> vehicles;
     private ArrayList<Passenger> passenger;
@@ -23,6 +23,8 @@ public class FerryNewSystem implements Ferry{
         passenger = new ArrayList<>();
 
         amountOfMoney = 0;
+        totalNumberOfSpace = 40;
+        totalNumberOfPassengers = 200;
     }
 
     @Override
@@ -46,6 +48,19 @@ public class FerryNewSystem implements Ferry{
         return (int)sum;
     }
 
+    public double countDoubleVehiclespace()//This one is needed because a bike is smaller than a car since car is 1....
+    {
+        double sum = 0;
+
+        for(Vehicle vehicle : this.vehicles){
+
+            sum += vehicle.getSpace();
+            //sum = Math.round(sum);
+        }
+        sum = Math.round(sum * 100.0) / 100.0;
+        return sum;
+    }
+
     @Override
     public int countMoney() {
 
@@ -57,7 +72,7 @@ public class FerryNewSystem implements Ferry{
     public void embark(Vehicle v) {
 
         if(hasSpaceFor(v)){
-            if(v.getAllPassengers().size() <= v.maxNumberOfPassengers){
+            if(v.getAllPassengers().size() <= v.maxNumberOfPassengers && passenger.size() + v.maxNumberOfPassengers <= totalNumberOfPassengers){
                 vehicles.add(v);
                 this.amountOfMoney += v.getFeeForVehicle();
 
@@ -83,8 +98,14 @@ public class FerryNewSystem implements Ferry{
         //checks if there is any room left.
         if(hasRoomFor(p)){
 
-            this.amountOfMoney += p.getCost();
-            this.passenger.add(p);
+            if(passenger.size() < totalNumberOfPassengers){
+                this.amountOfMoney += p.getCost();
+                this.passenger.add(p);
+            }
+            else{
+
+                System.err.println(" Ferry is now full, no more passengers \n");
+            }
         }
         else {
             System.err.println("\n Ferry is now full ");
@@ -106,11 +127,12 @@ public class FerryNewSystem implements Ferry{
     public boolean hasSpaceFor(Vehicle v) {
 
         //if vehicle already exists
+        //System.out.println(countVehicleSpace() + v.getSpace() <= totalNumberOfSpace);
         if(vehicles.contains(v)){
 
             return false;
         }
-        else if(countVehicleSpace() + v.getSpace() <= totalNumberOfSpace){
+        else if(countDoubleVehiclespace() + v.getSpace() <= totalNumberOfSpace){
 
             return true;
         }
@@ -160,11 +182,15 @@ public class FerryNewSystem implements Ferry{
         text += " _________________________\n";
         text += " Vehicles on ship: " + vehicles.size() + "\n";
         text += " Passengers on ship: " + passenger.size() + "/" + totalNumberOfPassengers + "\n";
-        text += " Space occupied: " + countVehicleSpace() + "/" + totalNumberOfSpace + "\n";
+        text += " Space occupied: " + countDoubleVehiclespace() + "/" + totalNumberOfSpace + "\n";
         text += " Total income: " + amountOfMoney + "\n";
         text += " _________________________\n";
         text += " Vehicle details \n";
         text += "";
+        Iterator<Vehicle> iterator = vehicles.iterator();
+        while (iterator.hasNext()) {
+            text += iterator.next().toString() + "\n";
+        }
         return text;
     }
 }

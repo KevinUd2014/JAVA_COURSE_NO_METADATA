@@ -30,6 +30,16 @@ public class Car extends Vehicle {
     }
 
     @Override
+    public String toString(){
+        String text= "";
+
+        text += "Cars: " + getSpace() + " How many passengers: " + getPassengerPerVehicle();
+
+        return text;
+
+    }
+
+    @Override
     protected double getSpace() {
         return space;
     }

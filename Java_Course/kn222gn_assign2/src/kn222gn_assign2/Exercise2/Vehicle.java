@@ -65,4 +65,9 @@ public abstract class Vehicle {
 
         return feeForVehicle;
     }
+    protected int getPassengerPerVehicle(){
+
+        return _numberOfPassengers;
+    }
+    public abstract String toString();
 }

@@ -25,6 +25,17 @@ public class Bicycle extends Vehicle{
             System.err.println(" The amount of passengers in the Bicycle is not allowed ");
         }
     }
+
+    @Override
+    public String toString(){
+        String text= "";
+
+        text += "Bicycle: " + getSpace() + " How many passengers: " + getPassengerPerVehicle();
+
+        return text;
+
+    }
+
     @Override
     protected double getSpace() {
 
