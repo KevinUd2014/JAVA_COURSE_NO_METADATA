@@ -9,6 +9,7 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
 
     @Override
     public void push(int n) {
+
         try{
 
             size++;

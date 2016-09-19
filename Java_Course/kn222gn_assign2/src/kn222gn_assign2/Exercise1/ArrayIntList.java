@@ -27,49 +27,48 @@ public class ArrayIntList extends AbstractIntCollection implements IntList{
     @Override
     public void addAt(int n, int index) throws IndexOutOfBoundsException {
         //adds at the specific index
-        try{
+        if(index > size() || index < 0){
 
-            size++;
-            int i;
-            if(size() == values.length){
-
-                resize();
-            }
-
-            for(i = size()-1; i > index; i -= 1){
-
-                values[i] = values[i-1];
-            }
-
-            values[index] = n;
-
-        }catch(Exception e){
-
-            System.out.println(e.fillInStackTrace());
+            throw new IndexOutOfBoundsException("The list is empty");
         }
+        size++;
+        int i;
+        if(size() == values.length){
+
+            resize();
+        }
+
+        for(i = size()-1; i > index; i -= 1){
+
+            values[i] = values[i-1];
+        }
+
+        values[index] = n;
+
     }
 
     @Override
     public void remove(int index) throws IndexOutOfBoundsException {
         //Removes an index
 
-        try{
+        if(index > size() || index < 0){
 
-            for(int i = index; i < size()-1; i += 1){
-
-                values[i] = values[i+1];
-            }
-            size--;
-        }catch(Exception e){
-
-            System.out.println(e.fillInStackTrace());
+            throw new IndexOutOfBoundsException("The list is empty");
         }
+
+        for(int i = index; i < size()-1; i += 1){
+
+            values[i] = values[i+1];
+        }
+        size--;
+
     }
 
     @Override
     public int get(int index) throws IndexOutOfBoundsException {
 
         if(index < 0 || index > size()){
+
             throw new IndexOutOfBoundsException();
         }
 
