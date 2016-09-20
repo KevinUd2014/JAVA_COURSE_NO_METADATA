@@ -87,22 +87,6 @@ public class Queue<E> implements QueueInterface<E> {
         }
     }
 
-    public boolean contains(E o) {
-
-        Iterator<Object> iterator = iterator();
-
-        while(iterator.hasNext()){
-
-            if(o == iterator.next()){
-
-                return true;
-            }
-        }
-
-
-        return false;
-    }
-
     public Iterator iterator() {
 
         //returns a new instance of the Iteratorclass

@@ -10,7 +10,11 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
     @Override
     public void push(int n) {
 
-        try{
+        if(size() == values.length){
+
+            resize();
+        }
+       /* try{
 
             size++;
             int i;
@@ -29,7 +33,8 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
         }catch(Exception e){
 
             System.out.println(e.fillInStackTrace());
-        }
+        }*/
+        values[size++] = n;
     }
 
     @Override
@@ -40,7 +45,7 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
             throw new IndexOutOfBoundsException();
         }
 
-        int tempValue = values[0];
+        /*int tempValue = values[0];
 
         try{
 
@@ -53,7 +58,8 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
         }catch(Exception e){
 
             System.out.println(e.fillInStackTrace());
-        }
+        }*/
+        int tempValue = values[--size];
         return tempValue;
     }
 
@@ -65,6 +71,6 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
             throw new IndexOutOfBoundsException();
         }
 
-        return values[0];
+        return values[size-1];
     }
 }

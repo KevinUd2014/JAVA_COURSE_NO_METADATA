@@ -58,17 +58,18 @@ public class ArrayIntListTest {
         //adds 200 on the last index
         arrayIntList.addAt(200, 10);
 
-        assertEquals(arrayIntList.size(), 11);
+        assertEquals(11, arrayIntList.size());
 
         arrayIntList.addAt(201, 9);
         arrayIntList.addAt(200, 9);
 
-        assertEquals(arrayIntList.size(), 13);
+        assertEquals(13, arrayIntList.size());
 
-        assertEquals(arrayIntList.get(10), 201);
+        assertEquals(201, arrayIntList.get(10));
 
         //cant add to an empty list
         try{
+
             arrayIntLisEmpty.addAt(5, 90);
             fail("Exception not thrown");
 

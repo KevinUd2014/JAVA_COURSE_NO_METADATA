@@ -42,7 +42,7 @@ public class ArrayIntStackTest {
             arrayIntStackBig.push(i);
         }*/
 
-        assertEquals(arrayIntStack.size(), 10);
+        assertEquals(10, arrayIntStack.size());
 
         assertTrue(arrayIntStackBig.isEmpty());
 
@@ -65,25 +65,25 @@ public class ArrayIntStackTest {
             arrayIntStackBig.push(i);
         }
 
-        assertEquals(arrayIntStack.size(), 10);
-        assertEquals(arrayIntStackBig.size(), 10000);
+        assertEquals(10, arrayIntStack.size());
+        assertEquals(10000, arrayIntStackBig.size());
 
         arrayIntStack.pop();
         arrayIntStackBig.pop();
         arrayIntStackBig.pop();
         arrayIntStackBig.pop();
 
-        assertEquals(arrayIntStack.size(), 9);
-        assertEquals(arrayIntStackBig.size(), 9997);
+        assertEquals(9, arrayIntStack.size());
+        assertEquals(9997, arrayIntStackBig.size());
 
         //test so that the list don't contain the removed int!
         for(int value : arrayIntStack){
 
-            assertNotEquals(value, 10);
+            assertNotEquals(10, value);
         }
         for(int value : arrayIntStackBig){
 
-            assertNotEquals(value, 10000);
+            assertNotEquals(10000, value);
         }
 
         try{
@@ -114,10 +114,10 @@ public class ArrayIntStackTest {
             arrayIntStackBig.push(i);
         }
 
-        assertEquals(arrayIntStack.peek(), 10);
-        assertEquals(arrayIntStack.peek(), 10);
-        assertEquals(arrayIntStackBig.peek(), 10000);
-        assertEquals(arrayIntStackBig.peek(), 10000);
+        assertEquals(10, arrayIntStack.peek());
+        assertEquals(10, arrayIntStack.peek());
+        assertEquals(10000, arrayIntStackBig.peek());
+        assertEquals(10000, arrayIntStackBig.peek());
 
         try{
 
