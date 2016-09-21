@@ -49,7 +49,7 @@ public class HashWordSet implements WordSet{
 
             if(size == bucket.length){
 
-                rehash();  
+                rehash();
             }
         }
     }
