@@ -39,6 +39,6 @@ public class Word implements Comparable<Word> {
     /* Implement Comparable */
     public int compareTo(Word w) { /*"compares two words lexicographically"*/
 
-        return word.compareToIgnoreCase(w.word);
+        return word.compareToIgnoreCase(w.toString());//w.word?
     }
 }
