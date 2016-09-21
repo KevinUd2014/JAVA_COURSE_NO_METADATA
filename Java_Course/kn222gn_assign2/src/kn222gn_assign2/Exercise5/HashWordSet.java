@@ -45,7 +45,7 @@ public class HashWordSet implements WordSet{
             node = new Node(word);
             node.next = bucket[position];
             bucket[position] = node;
-            size += 1;
+            size += 1;// add 1 to size
 
             if(size == bucket.length){
 
