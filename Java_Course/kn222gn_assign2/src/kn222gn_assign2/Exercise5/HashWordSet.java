@@ -10,7 +10,7 @@ public class HashWordSet implements WordSet{
     private int size;
     private Node[] bucket = new Node[8];
 
-    private class Node{
+    private class Node{//from slides
 
         Word value;
         Node next = null;
@@ -26,7 +26,7 @@ public class HashWordSet implements WordSet{
     }
 
     @Override
-    public void add(Word word) {
+    public void add(Word word) {//from slides
 
         int position = getBucketNumber(word);
         Node node = bucket[position];
@@ -54,33 +54,82 @@ public class HashWordSet implements WordSet{
         }
     }
 
-    private void rehash() {
+    private void rehash() {//from slides
 
+        Node[] temp = bucket;
 
+        bucket = new Node[2*temp.length];
+
+        size = 0;
+
+        for(Node n : temp){
+
+            if(n == null){
+
+                continue;
+            }
+            while(n != null){
+
+                add(n.value);
+                n = n.next;
+            }
+        }
     }
 
     @Override
-    public boolean contains(Word word) {
+    public boolean contains(Word word) {//from slides
+
+        int position = getBucketNumber(word);
+        Node node = bucket[position];
+
+        while(node != null){
+
+            if(node.value.equals(word)){
+
+                return true;
+            }
+            else{
+
+                node = node.next;
+            }
+        }
         return false;
     }
 
     @Override
     public int size() {
-        return 0;
+
+        return size;
     }
 
     @Override
-    public Iterator iterator() {
-        return null;
+    public Iterator<Word> iterator() {
+
+        return new iteratorClass();
     }
 
-    private int getBucketNumber(Word word){
+    private int getBucketNumber(Word word){//from slides
 
         int hashCode = word.hashCode();
         if(hashCode < 0){
 
             hashCode = -hashCode;
         }
-        return 0;
+
+        return hashCode % bucket.length;
+    }
+    private class iteratorClass implements Iterator<Word> {
+
+        private Node node;
+        private int index = 0;
+
+        public boolean hasNext() {
+
+            return false;
+        }
+        public Word next() {
+
+            return;
+        }
     }
 }
