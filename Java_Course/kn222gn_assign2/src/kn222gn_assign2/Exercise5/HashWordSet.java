@@ -31,26 +31,27 @@ public class HashWordSet implements WordSet{
         int position = getBucketNumber(word);
         Node node = bucket[position];
 
-        while(node != null){
+        while(node != null) {
 
-            if(node.value.equals(word)){
+            if (node.value.equals(word)) {
 
                 return;
             }
-            else{
+            else {
 
                 node = node.next;
             }
+        }
+        node = new Node(word);
+        node.next = bucket[position];
+        bucket[position] = node;
+        size++;// add 1 to size
 
-            node = new Node(word);
-            node.next = bucket[position];
-            bucket[position] = node;
-            size += 1;// add 1 to size
+        //System.out.println(node);
 
-            if(size == bucket.length){
+        if(size == bucket.length){
 
-                rehash();
-            }
+            rehash();
         }
     }
 
@@ -123,13 +124,61 @@ public class HashWordSet implements WordSet{
         private Node node;
         private int index = 0;
 
+        private iteratorClass(){
+            //node = returnNode();
+
+            for (int i = index; i < bucket.length; i++) {
+
+                if(bucket[i] != null){
+                    index++;
+                    node = bucket[i];
+                    break;
+                }
+            }
+        }
+
+        /*public Node returnNode(){
+
+            for (int i = index; i < bucket.length; i++) {
+
+                if(bucket[i] != null){
+                    index++;
+                    //node = bucket[i];
+                    return bucket[i];
+                }
+            }
+
+            return null;
+        }*/
+
         public boolean hasNext() {
+
+            if(node != null){
+
+                return true;
+            }
 
             return false;
         }
         public Word next() {
 
-            return;
+            Word newNode = node.value;
+            if(node.next != null){
+                node = node.next;
+            }
+            else{
+                //index++;
+                //node = returnNode();
+                //index++;
+
+                index++;
+                while(bucket[index] == null && index < size)
+                {
+                    index++;
+                }
+                node = bucket[index];
+            }
+            return newNode;
         }
     }
 }

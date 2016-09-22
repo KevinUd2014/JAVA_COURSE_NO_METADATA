@@ -2,10 +2,7 @@ package kn222gn_assign2.Exercise5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by Golde on 2016-09-21.
@@ -43,6 +40,10 @@ public class WordCount1Main {
         //String content = "";
         String contentToPrint = "";
 
+        HashWordSet hashWordSet = new HashWordSet();
+
+
+
         try{
 
             Scanner scanner = new Scanner(fileWithTest);
@@ -53,16 +54,25 @@ public class WordCount1Main {
 
                 hashSet.add(w);
                 treeSet.add(w);
-                //content += scanner.nextLine() + "\n";
+                hashWordSet.add(w);
+
             }
 
-            contentToPrint += hashSet.size() + "/" + treeSet.size();
-
+            scanner.close();
         }
-        catch(FileNotFoundException error){
+        catch(Exception error){
 
-            System.err.println("File not found");
+            System.err.println("\n\n File not found");
         }
+
+        contentToPrint += " Hash set: " + hashSet.size() + "\n Tree set: " + treeSet.size() + "\n HashWordSet size: " + hashWordSet.size() + "\n";
+
+        Iterator<Word> iteratorWord = hashWordSet.iterator();
+        while(iteratorWord.hasNext()){
+
+            contentToPrint += "\n Iterator words: " + iteratorWord.next();
+        }
+
         return contentToPrint;
     }
 }
