@@ -164,6 +164,7 @@ public class HashWordSet implements WordSet{
 
             Word newNode = node.value;
             if(node.next != null){
+
                 node = node.next;
             }
             else{
@@ -172,7 +173,7 @@ public class HashWordSet implements WordSet{
                 //index++;
 
                 index++;
-                while(bucket[index] == null && index < size)
+                while(bucket[index] == null && index <= size)
                 {
                     index++;
                 }
