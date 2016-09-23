@@ -27,7 +27,7 @@ public class ArrayIntStackTest {
     }
 
     @Test
-    public void push() throws Exception {
+    public void push() throws Exception { // testing push function
 
         ArrayIntStack arrayIntStack = new ArrayIntStack();
         ArrayIntStack arrayIntStackBig = new ArrayIntStack();
@@ -50,7 +50,7 @@ public class ArrayIntStackTest {
     }
 
     @Test
-    public void pop() throws Exception {
+    public void pop() throws Exception { // testing the pop function
 
         ArrayIntStack arrayIntStack = new ArrayIntStack();
         ArrayIntStack arrayIntStackBig = new ArrayIntStack();
@@ -98,7 +98,7 @@ public class ArrayIntStackTest {
     }
 
     @Test
-    public void peek() throws Exception {
+    public void peek() throws Exception { // test the peek function
 
 
         ArrayIntStack arrayIntStack = new ArrayIntStack();

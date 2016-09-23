@@ -9,7 +9,7 @@ public class ArrayIntList extends AbstractIntCollection implements IntList{
 
     @Override
     public void add(int n) {
-        //will add to the arraylist
+        //will add to the arraylist and resize it if necessary.
         try{
 
             values[size()] = n;
@@ -58,6 +58,7 @@ public class ArrayIntList extends AbstractIntCollection implements IntList{
 
         for(int i = index; i < size()-1; i += 1){
 
+            //sets the new value and amount
             values[i] = values[i+1];
         }
         size--;

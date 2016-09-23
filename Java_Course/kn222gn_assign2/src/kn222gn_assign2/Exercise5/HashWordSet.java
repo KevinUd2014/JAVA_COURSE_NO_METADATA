@@ -10,7 +10,7 @@ public class HashWordSet implements WordSet{
     private int size;
     private Node[] bucket = new Node[8];
 
-    private class Node{//from slides
+    private class Node{//from slides sets a value to Word
 
         Word value;
         Node next = null;
@@ -26,7 +26,7 @@ public class HashWordSet implements WordSet{
     }
 
     @Override
-    public void add(Word word) {//from slides
+    public void add(Word word) {//from slides adds a word to the bucket
 
         int position = getBucketNumber(word);
         Node node = bucket[position];
@@ -51,11 +51,11 @@ public class HashWordSet implements WordSet{
 
         if(size == bucket.length){
 
-            rehash();
+            rehash();// if the size reaches the bucket length the length is doubled.
         }
     }
 
-    private void rehash() {//from slides
+    private void rehash() {//from slides resize the size
 
         Node[] temp = bucket;
 
@@ -78,7 +78,7 @@ public class HashWordSet implements WordSet{
     }
 
     @Override
-    public boolean contains(Word word) {//from slides
+    public boolean contains(Word word) {//from slides checks if containing word, true or false.
 
         int position = getBucketNumber(word);
         Node node = bucket[position];
@@ -98,7 +98,7 @@ public class HashWordSet implements WordSet{
     }
 
     @Override
-    public int size() {
+    public int size() { // returns the size
 
         return size;
     }
@@ -151,7 +151,7 @@ public class HashWordSet implements WordSet{
             return null;
         }*/
 
-        public boolean hasNext() {
+        public boolean hasNext() { // return if there is a next.
 
             if(node != null){
 
@@ -161,6 +161,8 @@ public class HashWordSet implements WordSet{
             return false;
         }
         public Word next() {
+
+            //returns the next node
 
             Word newNode = node.value;
             if(node.next != null){

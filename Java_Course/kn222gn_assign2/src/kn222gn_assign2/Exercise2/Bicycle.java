@@ -9,9 +9,9 @@ public class Bicycle extends Vehicle{
 
    // private int maxNumberOfPassengers = 1;
 
-    protected Bicycle(int numbersOfPassengers){
+    protected Bicycle(int numbersOfPassengers){//sets all the values for the vehicle
 
-        super(numbersOfPassengers);
+        super(numbersOfPassengers);//adds this value to the superclass
 
         maxNumberOfPassengers = 1;
         if(numbersOfPassengers <= maxNumberOfPassengers){
@@ -27,7 +27,7 @@ public class Bicycle extends Vehicle{
     }
 
     @Override
-    public String toString(){
+    public String toString(){ // will write this as a string in the toString.
         String text= "";
 
         text += "Bicycle: " + getSpace() + " How many passengers: " + getPassengerPerVehicle();

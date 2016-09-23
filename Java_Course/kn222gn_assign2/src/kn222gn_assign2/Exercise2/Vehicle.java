@@ -16,10 +16,10 @@ public abstract class Vehicle {
     protected List<Passenger> passengerList;
     protected int maxNumberOfPassengers;
 
-    protected Vehicle(){
+    protected Vehicle(){//empty constructor
 
     }
-    protected Vehicle(int numOfPassengers)
+    protected Vehicle(int numOfPassengers)//sets the number of passengers
     {
         passengerList = new LinkedList<Passenger>();
 
@@ -69,5 +69,5 @@ public abstract class Vehicle {
 
         return _numberOfPassengers;
     }
-    public abstract String toString();
+    public abstract String toString(); // to string function
 }

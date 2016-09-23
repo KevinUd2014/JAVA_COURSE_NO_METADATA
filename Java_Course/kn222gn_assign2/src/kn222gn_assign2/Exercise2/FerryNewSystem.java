@@ -16,26 +16,27 @@ public class FerryNewSystem implements Ferry{
 
     private int amountOfMoney;
 
-    public FerryNewSystem(){
+    public FerryNewSystem(){//constructor
 
-        //creates the new array lists
+        //creates the new array lists for the vehicle and passenger
         vehicles = new ArrayList<>();
         passenger = new ArrayList<>();
 
+        //sets some values at the beginning
         amountOfMoney = 0;
         totalNumberOfSpace = 40;
         totalNumberOfPassengers = 200;
     }
 
     @Override
-    public int countPassengers() {
+    public int countPassengers() {//returns the size
 
         //returns the size of the passenger list
         return passenger.size();
     }
 
     @Override
-    public int countVehicleSpace() {
+    public int countVehicleSpace() {//returns the size of the vehicles
 
         //returns the sum of all the vehicles in the list
         double sum = 0;
@@ -69,7 +70,7 @@ public class FerryNewSystem implements Ferry{
     }
 
     @Override
-    public void embark(Vehicle v) {
+    public void embark(Vehicle v) {//adds vehicle to the ferry if there is room for the vehicle
 
         if(hasSpaceFor(v)){
             if(v.getAllPassengers().size() <= v.maxNumberOfPassengers && passenger.size() + v.maxNumberOfPassengers <= totalNumberOfPassengers){
@@ -93,7 +94,7 @@ public class FerryNewSystem implements Ferry{
     }
 
     @Override
-    public void embark(Passenger p) {
+    public void embark(Passenger p) {//adds passenger to the ferry if there is room for it
 
         //checks if there is any room left.
         if(hasRoomFor(p)){
@@ -114,7 +115,7 @@ public class FerryNewSystem implements Ferry{
     }
 
     @Override
-    public void disembark() {
+    public void disembark() {//clears all the lists to make them empty
 
         //Clears all the lists with all the vehicles and passengers
         vehicles.clear();
@@ -124,7 +125,7 @@ public class FerryNewSystem implements Ferry{
     }
 
     @Override
-    public boolean hasSpaceFor(Vehicle v) {
+    public boolean hasSpaceFor(Vehicle v) {//returns true or false depending on the space
 
         //if vehicle already exists
         //System.out.println(countVehicleSpace() + v.getSpace() <= totalNumberOfSpace);
@@ -143,7 +144,7 @@ public class FerryNewSystem implements Ferry{
     }
 
     @Override
-    public boolean hasRoomFor(Passenger p) {
+    public boolean hasRoomFor(Passenger p) {//returns true or false depending on the space
 
         if(countPassengers() > totalNumberOfPassengers && passenger.contains(p)){
 
@@ -156,7 +157,7 @@ public class FerryNewSystem implements Ferry{
     }
 
     @Override
-    public Iterator<Vehicle> iterator() {
+    public Iterator<Vehicle> iterator() {//the iterator for the vehicle uses information from count and get functions
 
         return new Iterator<Vehicle>() {
 
@@ -173,7 +174,7 @@ public class FerryNewSystem implements Ferry{
         };
     }
 
-    public String toString(){
+    public String toString(){ // prints all the information of the ferry like vehicle list and passenger list and using the iterator printing info for all vehicles
 
         String text = "";
 

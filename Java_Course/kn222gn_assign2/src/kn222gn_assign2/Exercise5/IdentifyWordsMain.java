@@ -33,7 +33,7 @@ private static String originalText;
             System.err.println("Something went wrong when creating the file!");
         }
     }
-    public static String readFile(File fileWithTest){
+    public static String readFile(File fileWithTest){// reads the file from the path
 
         String content = "";
         String contentToPrint = "";
@@ -42,14 +42,14 @@ private static String originalText;
 
             Scanner scanner = new Scanner(fileWithTest);
 
-            while(scanner.hasNext()){
+            while(scanner.hasNext()){// scans for the next line
 
                 content += scanner.nextLine() + "\n";
             }
 
             char[] characters = content.toCharArray();
 
-            for(Character character : characters){
+            for(Character character : characters){//for all characters in character and adding only if there is a letter or a whitespace
 
                 //only do this when these characters are found in the text file
                 if(Character.isLetter(character) || Character.isWhitespace(character)){
@@ -65,7 +65,7 @@ private static String originalText;
         }
         return contentToPrint;
     }
-    public static void createFile(String originalText, String path){
+    public static void createFile(String originalText, String path){ //this creates the "word" text file in this case using filewriter
 
 
         File file = new File(path);

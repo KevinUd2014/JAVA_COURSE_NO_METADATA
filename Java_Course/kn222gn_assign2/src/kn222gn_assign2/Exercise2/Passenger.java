@@ -9,7 +9,7 @@ public class Passenger {
 
     public Passenger(){
 
-        this.cost = 20;
+        this.cost = 20;//sets the cost for the passenger
     }
 
     protected Passenger(int _cost){

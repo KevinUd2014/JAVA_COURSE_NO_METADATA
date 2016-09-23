@@ -39,6 +39,7 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
 
     @Override
     public int pop() throws IndexOutOfBoundsException {
+        //pops the latest value
 
         if(size() == 0){
 
@@ -66,6 +67,7 @@ public class ArrayIntStack extends AbstractIntCollection implements IntStack{
     @Override
     public int peek() throws IndexOutOfBoundsException {
 
+        //selects the latest value in the stack
         if(size() == 0){
 
             throw new IndexOutOfBoundsException();

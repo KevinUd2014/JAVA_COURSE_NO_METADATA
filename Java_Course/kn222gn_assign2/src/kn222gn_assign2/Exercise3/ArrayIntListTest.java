@@ -30,6 +30,8 @@ public class ArrayIntListTest {
     @Test
     public void add() throws Exception {
 
+        //test the add function
+
         ArrayIntList arrayIntList = new ArrayIntList();
         arrayIntList.add(1337);
         assertEquals(1337, arrayIntList.get(0));
@@ -37,6 +39,7 @@ public class ArrayIntListTest {
         ArrayIntList emptyList = new ArrayIntList();
         assertTrue(emptyList.isEmpty());
 
+        //add 100 elements to the list
         for(int i = 0; i < 100; i++){
 
             arrayIntList.add(1337);
@@ -47,6 +50,8 @@ public class ArrayIntListTest {
 
     @Test
     public void addAt() throws Exception {
+
+        //test the addat function
 
         ArrayIntList arrayIntList = new ArrayIntList();
         ArrayIntList arrayIntLisEmpty = new ArrayIntList();
@@ -83,6 +88,8 @@ public class ArrayIntListTest {
     @Test
     public void remove() throws Exception {
 
+        //test the remove function
+
         ArrayIntList arrayIntList = new ArrayIntList();
         ArrayIntList arrayIntListBig = new ArrayIntList();
 
@@ -117,6 +124,8 @@ public class ArrayIntListTest {
     @Test
     public void get() throws Exception {
 
+        //testing the getfunction
+
         ArrayIntList arrayIntList = new ArrayIntList();
 
         for(int i = 0; i <= 10; i++) {
@@ -141,6 +150,8 @@ public class ArrayIntListTest {
 
     @Test
     public void indexOf() throws Exception {
+
+        //testing the indexOf Function
 
         ArrayIntList arrayIntList = new ArrayIntList();
         ArrayIntList arrayIntListBig = new ArrayIntList();
