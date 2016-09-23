@@ -11,7 +11,7 @@ public class TreeWordSet implements WordSet {
     private int size = 0;
 
     @Override
-    public void add(Word word) {
+    public void add(Word word) {//from slides
 
         if (root == null) {
 
@@ -20,7 +20,7 @@ public class TreeWordSet implements WordSet {
         }
         else{
 
-            if(contains(word))
+            if(contains(word))//has to check this so that the same words don't count multiple times
                 return;
 
             size++;
@@ -29,24 +29,24 @@ public class TreeWordSet implements WordSet {
     }
 
     @Override
-    public boolean contains(Word word) {
+    public boolean contains(Word word) {//From slides
 
         return root.contains(word);
     }
 
     @Override
-    public int size() {
+    public int size() {//from last exercise
 
         return size;//return size
     }
 
-    protected void print(){
+    protected void print(){//don't use this but can be used to print content
 
         root.print();
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator iterator() {//iterate like all the other exercises
 
         return new iteratorClass();
     }
@@ -58,10 +58,12 @@ public class TreeWordSet implements WordSet {
 
         private iteratorClass(){
 
+            //checks if the left and right isn't null otherwise adds them to the queue
             treeIterator(root);
         }
         public boolean hasNext(){
 
+            //checks so that the queue isn't empty
             if(queue.isEmpty()) {
 
                 return false;
@@ -71,11 +73,13 @@ public class TreeWordSet implements WordSet {
         }
         public Word next(){
 
+            //deque the words and then use this to write them out
             Node node = (Node)queue.dequeue();
             return node.word;
         }
         public void treeIterator(Node node){
 
+            //checks if the left and right isn't null otherwise adds them to the queue
             if(node.left != null)
                 treeIterator(node.left);
             queue.enqueue(node);
@@ -97,7 +101,7 @@ public class TreeWordSet implements WordSet {
             this.word = word;
         }
 
-        public void add(Word _word) {//From slides
+        public void add(Word _word) {//From slides adds the words to the right side or the left side depending on the word "value"
 
             if(_word.compareTo(this.word) < 0){
 
@@ -118,7 +122,7 @@ public class TreeWordSet implements WordSet {
                     right.add(_word);
             }
         }
-        public boolean contains(Word _word){//From slides
+        public boolean contains(Word _word){//From slides, Checks if the word contains the different words already
 
             if(_word.compareTo(this.word) < 0){
 
@@ -140,7 +144,7 @@ public class TreeWordSet implements WordSet {
             }
             return true;
         }
-        private void print(){
+        private void print(){// prints the left and the right side. From slides.
 
             if(left != null)
                 left.print();

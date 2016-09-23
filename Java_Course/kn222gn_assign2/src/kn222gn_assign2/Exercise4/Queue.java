@@ -20,21 +20,21 @@ public class Queue<E> implements QueueInterface<E> {
         return size;// made an error here by using another size
     }
 
-    public boolean isEmpty() {
+    public boolean isEmpty() {//returns true or false if the size is empty or not.
 
         return size == 0;
     }
 
-    public void enqueue(E element) {
+    public void enqueue(E element) {// adds elements to the queue depending on the status of the head and tail.
 
         //code from the lecture;
-        if(head == null){
+        if(head == null){//if the head is null; usually at the first added element.
 
-            head = new Node(element);
+            head = new Node(element);// set head to a new node containing the new element
 
-            tail = head;
+            tail = head;//set the new element to the tail.
         }
-        else{
+        else{// else adds the element to the list in the last position.
 
             tail.nextElement = new Node(element);
             tail = tail.nextElement;

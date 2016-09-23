@@ -67,6 +67,7 @@ public class ArrayIntList extends AbstractIntCollection implements IntList{
     @Override
     public int get(int index) throws IndexOutOfBoundsException {
 
+        //get a specific index
         if(index < 0 || index > size()){
 
             throw new IndexOutOfBoundsException();
@@ -78,6 +79,7 @@ public class ArrayIntList extends AbstractIntCollection implements IntList{
     @Override
     public int indexOf(int n) {
 
+        //get the index of the value "n"
         for(int i = 0; i < size(); i++){
 
             if(values[i] == n){

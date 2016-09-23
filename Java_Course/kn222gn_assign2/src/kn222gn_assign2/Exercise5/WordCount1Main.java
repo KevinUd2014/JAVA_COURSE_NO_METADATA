@@ -15,7 +15,7 @@ public class WordCount1Main {
 
     public static void main(String args[]){
 
-        try{
+        try{//reads the file path and use other methods for the printout of content
 
             String path = args[0];
            // Set<Word> hashSet = new HashSet<Word>();
@@ -28,21 +28,19 @@ public class WordCount1Main {
 
             System.out.println(originalText);
 
-            System.out.println("\n" + path);
+            System.out.println("\n" + path);// check the path
         }
         catch(Exception error){
 
             System.err.println("Something went wrong when creating the file!");
         }
     }
-    public static String readFile(File fileWithTest){
+    public static String readFile(File fileWithTest){//reads the file and returns a string to print out
 
         //String content = "";
         String contentToPrint = "";
 
         HashWordSet hashWordSet = new HashWordSet();
-
-
 
         try{
 
@@ -54,7 +52,7 @@ public class WordCount1Main {
 
                 hashSet.add(w);
                 treeSet.add(w);
-                hashWordSet.add(w);
+                hashWordSet.add(w);//adds all the hash to the wordset
 
             }
 
@@ -67,8 +65,9 @@ public class WordCount1Main {
 
         contentToPrint += " Hash set: " + hashSet.size() + "\n Tree set: " + treeSet.size() + "\n HashWordSet size: " + hashWordSet.size() + "\n";
 
-        Iterator<Word> iteratorWord = hashWordSet.iterator();
-        while(iteratorWord.hasNext()){
+        Iterator<Word> iteratorWord = hashWordSet.iterator();//adds the iterator to make it usable
+
+        while(iteratorWord.hasNext()){//loops all the containing words from the iterator
 
             contentToPrint += "\n Iterator words: " + iteratorWord.next();
         }

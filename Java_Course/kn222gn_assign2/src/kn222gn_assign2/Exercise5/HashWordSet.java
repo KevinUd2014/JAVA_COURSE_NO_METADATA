@@ -109,7 +109,7 @@ public class HashWordSet implements WordSet{
         return new iteratorClass();
     }
 
-    private int getBucketNumber(Word word){//from slides
+    private int getBucketNumber(Word word){//from slides gets the index from bucket which be used
 
         int hashCode = word.hashCode();
         if(hashCode < 0){
@@ -129,7 +129,7 @@ public class HashWordSet implements WordSet{
 
             for (int i = index; i < bucket.length; i++) {
 
-                if(bucket[i] != null){
+                if(bucket[i] != null){//checks so that the bucket index is not null before continuing the loop
                     index++;
                     node = bucket[i];
                     break;
