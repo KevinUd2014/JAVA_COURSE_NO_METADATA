@@ -58,7 +58,7 @@ public class FerryMain {
         System.out.println("\n Count passengers: " + ferrySystem.countPassengers() + "        //Should be 5 ");
         System.out.println("\n Counting vehicle spaces: " + ferrySystem.countVehicleSpace() + " //Should be 6 ");
 
-        System.out.println("\n Counting the money earned: " + ferrySystem.countMoney() + " Should be 410");
+        System.out.println("\n Counting the money earned: " + ferrySystem.countMoney() + " Should be 480");
 
 
         ferrySystem.disembark();
