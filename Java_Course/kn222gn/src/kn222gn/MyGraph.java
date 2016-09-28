@@ -147,6 +147,7 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
         for(MyNode val : item2node.values()){
 
+            count += val.outDegree();
         }
         return count;
     }
