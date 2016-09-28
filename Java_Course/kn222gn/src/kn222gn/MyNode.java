@@ -11,8 +11,8 @@ import java.util.Set;
  */
 public class MyNode<E> extends Node<E> {
 
-    private Set<Node<E>> preds = new HashSet<Node<E>>();
-    private Set<Node<E>> succs = new HashSet<Node<E>>();
+    private Set<Node<E>> preds = new HashSet<>();
+    private Set<Node<E>> succs = new HashSet<>();
 
     public MyNode(E item) {
 
@@ -21,6 +21,7 @@ public class MyNode<E> extends Node<E> {
 
     @Override
     public boolean hasSucc(Node<E> node) {
+
         return false;
     }
 
@@ -32,30 +33,34 @@ public class MyNode<E> extends Node<E> {
 
     @Override
     public Iterator<Node<E>> succsOf() {
+
         return null;
     }
 
     @Override
     public boolean hasPred(Node<E> node) {
-        return false;
+
+        return preds.contains(node);
     }
 
     @Override
     public int inDegree() {
-        return 0;
+
+        return preds.size();
     }
 
     @Override
     public Iterator<Node<E>> predsOf() {
+
         return null;
     }
 
     @Override
     protected void addSucc(Node<E> succ) {
 
-        if(this.item().hashCode() == succ.item().hashCode() && this.item().equals(succ.item())){
+       /* if(this.item().hashCode() == succ.item().hashCode() && this.item().equals(succ.item())){
             return;
-        }
+        }*/
 
         succs.add(succ);
     }

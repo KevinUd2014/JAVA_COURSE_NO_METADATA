@@ -145,27 +145,34 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @Override
     public void removeNodeFor(E item) {
 
-        if(item == null && containsNodeFor(item)){
+        /*if(item == null && containsNodeFor(item)){
 
             item2node.remove(item);// this may not be the correct item to delete
         }
         else {
             throw new  NullPointerException(" removeNodeFor is null ");
-        }
+        }*/
     }
 
     @Override
     public boolean containsEdgeFor(E from, E to) {
+
         return false;
     }
 
     @Override
     public boolean removeEdgeFor(E from, E to) {
+
         return false;
     }
 
     @Override
     public String toString() {
-        return null;
+
+        String text = "";
+
+        text += item2node.toString();
+
+        return text;
     }
 }
