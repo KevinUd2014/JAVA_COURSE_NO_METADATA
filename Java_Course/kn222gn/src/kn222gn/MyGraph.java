@@ -147,10 +147,6 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
         for(MyNode val : item2node.values()){
 
-            if(val.hasSucc(val)){
-
-                count += 1;
-            }
         }
         return count;
     }
