@@ -15,7 +15,7 @@ public class MyGraph<E> implements DirectedGraph<E> {
     private Set<Node<E>> heads = new HashSet<>();
     private Set<Node<E>> tails = new HashSet<>();
 
-    //private Set<Node<E>> setNode = new HashSet<Node<E>>();
+    //private Set<Node<E>> setNode = new HashSet<>();
 
     public MyGraph(){
 
@@ -27,10 +27,7 @@ public class MyGraph<E> implements DirectedGraph<E> {
         try {
 
             if (containsNodeFor(item)) {
-
-                System.out.println(" Item already exists. addNodeFor");
-
-                return null;
+                return item2node.get(item);
             }
             else {
 
@@ -82,9 +79,8 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
             tails.remove(src);
             heads.remove(tgt);
-
-            return true;
         }
+        return true;
     }
 
     @Override
@@ -105,13 +101,13 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @Override
     public Iterator<Node<E>> iterator() {
 
-        return null;
+        return new item2NodeIterator();
     }
 
     @Override
     public Iterator<Node<E>> heads() {
 
-        return null;
+        return heads.iterator();
     }
 
     @Override
@@ -123,7 +119,7 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @Override
     public Iterator<Node<E>> tails() {
 
-        return null;
+        return tails.iterator();
     }
 
     @Override
@@ -134,24 +130,32 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
     @Override
     public List<E> allItems() {
-        return null;
+
+        List myList = new ArrayList<>();
+
+        for(MyNode val : item2node.values()){
+
+            myList.add(val);
+        }
+        return myList;
     }
 
     @Override
     public int edgeCount() {
+
         return 0;
     }
 
     @Override
     public void removeNodeFor(E item) {
 
-        /*if(item == null && containsNodeFor(item)){
+        if(item != null && containsNodeFor(item)){
 
             item2node.remove(item);// this may not be the correct item to delete
         }
         else {
             throw new  NullPointerException(" removeNodeFor is null ");
-        }*/
+        }
     }
 
     @Override
@@ -174,5 +178,21 @@ public class MyGraph<E> implements DirectedGraph<E> {
         text += item2node.toString();
 
         return text;
+    }
+
+    @SuppressWarnings("unchecked")
+    public class item2NodeIterator implements Iterator<Node<E>> {
+
+        Iterator itr = item2node.entrySet().iterator();
+
+        public boolean hasNext() {
+
+            return itr.hasNext();
+        }
+
+        public Node<E> next() {
+
+            return (Node<E>)itr.next();
+        }
     }
 }
