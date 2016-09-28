@@ -143,7 +143,16 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @Override
     public int edgeCount() {
 
-        return 0;
+        int count = 0;
+
+        for(MyNode val : item2node.values()){
+
+            if(val.hasSucc(val)){
+
+                count += 1;
+            }
+        }
+        return count;
     }
 
     @Override

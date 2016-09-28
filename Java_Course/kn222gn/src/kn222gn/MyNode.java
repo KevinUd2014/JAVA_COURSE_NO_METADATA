@@ -22,7 +22,7 @@ public class MyNode<E> extends Node<E> {
     @Override
     public boolean hasSucc(Node<E> node) {
 
-        return false;
+        return succs.contains(node);
     }
 
     @Override
