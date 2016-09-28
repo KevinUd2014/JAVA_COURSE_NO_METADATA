@@ -24,25 +24,42 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @Override
     public Node<E> addNodeFor(E item) {
 
-        if(containsNodeFor(item)){
+        try {
 
-            System.out.println("Item is null");
-            return null;
-        }
-        else{
+            if (containsNodeFor(item)) {
 
-            MyNode myNode = new MyNode<>(item);
-            tails.add(myNode);
-            heads.add(myNode);
-            item2node.put(item, myNode);
-            return myNode;
+                System.out.println(" Item already exists. addNodeFor");
+
+                return null;
+            }
+            else {
+
+                MyNode myNode = new MyNode<>(item);
+
+                tails.add(myNode);
+                heads.add(myNode);
+
+                item2node.put(item, myNode);
+
+                return myNode;
+            }
         }
+        catch(NullPointerException e){
+
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     @Override
     public Node<E> getNodeFor(E item) {
 
-        return null;
+        if(item == null){
+
+            throw new  NullPointerException(" getNodeFor is null ");
+        }
+        else
+            return item2node.get(item);
     }
 
     @Override
@@ -50,7 +67,7 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
         if(from == null || to == null){
 
-            throw new RuntimeException("null is not acceptable input.");
+            throw new RuntimeException(" null is not acceptable input. addEdgeFor ");
         }
 
         MyNode<E> src = (MyNode<E>) addNodeFor(from);
@@ -65,43 +82,54 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
             tails.remove(src);
             heads.remove(tgt);
+
             return true;
         }
     }
 
     @Override
     public boolean containsNodeFor(E item) {
-        return false;
+
+        if(item == null)
+            throw new NullPointerException(" Null pointer in containsNodeFor ");
+
+        return item2node.containsKey(item);
     }
 
     @Override
     public int nodeCount() {
-        return 0;
+
+        return item2node.size();
     }
 
     @Override
     public Iterator<Node<E>> iterator() {
+
         return null;
     }
 
     @Override
     public Iterator<Node<E>> heads() {
+
         return null;
     }
 
     @Override
     public int headCount() {
-        return 0;
+
+        return heads.size();
     }
 
     @Override
     public Iterator<Node<E>> tails() {
+
         return null;
     }
 
     @Override
     public int tailCount() {
-        return 0;
+
+        return tails.size();
     }
 
     @Override
@@ -117,6 +145,13 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @Override
     public void removeNodeFor(E item) {
 
+        if(item == null && containsNodeFor(item)){
+
+            item2node.remove(item);// this may not be the correct item to delete
+        }
+        else {
+            throw new  NullPointerException(" removeNodeFor is null ");
+        }
     }
 
     @Override
