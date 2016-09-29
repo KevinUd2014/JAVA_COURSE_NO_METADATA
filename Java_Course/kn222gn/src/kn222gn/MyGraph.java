@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class MyGraph<E> implements DirectedGraph<E> {
 
-    private Map<E, MyNode<E>> item2node = new HashMap<E, MyNode<E>>();
+    private Map<E, MyNode<E>> item2node = new HashMap<>();
 
     private Set<Node<E>> heads = new HashSet<>();
     private Set<Node<E>> tails = new HashSet<>();
@@ -24,34 +24,34 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @Override
     public Node<E> addNodeFor(E item) {
 
-        try {
-
-            if (containsNodeFor(item)) {
-                return item2node.get(item);
-            }
-            else {
-
-                MyNode myNode = new MyNode<>(item);
-
-                tails.add(myNode);
-                heads.add(myNode);
-
-                item2node.put(item, myNode);
-
-                return myNode;
-            }
+        if(item == null){
+            throw new NullPointerException(" null in addNodeFor ");
         }
-        catch(NullPointerException e){
-
-            System.out.println(e.getMessage());
+        if (containsNodeFor(item)) {
+            return item2node.get(item);
         }
-        return null;
+        else {
+
+            MyNode myNode = new MyNode<>(item);
+
+            tails.add(myNode);
+            heads.add(myNode);
+
+            item2node.put(item, myNode);
+
+            return myNode;
+        }
+
     }
 
     @Override
     public Node<E> getNodeFor(E item) {
 
         if(item == null){
+
+            throw new  NullPointerException(" getNodeFor is null ");
+        }
+        if(!item2node.containsKey(item)){
 
             throw new  NullPointerException(" getNodeFor is null ");
         }
@@ -100,8 +100,8 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
     @Override
     public Iterator<Node<E>> iterator() {
-
-        return new item2NodeIterator();
+        List<Node<E>> list = new ArrayList<>(item2node.values());
+        return list.iterator();
     }
 
     @Override
@@ -133,9 +133,9 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
         List myList = new ArrayList<>();
 
-        for(MyNode val : item2node.values()){
+        for(MyNode<E> val : item2node.values()){
 
-            myList.add(val);
+            myList.add(val.item());//Had error when I just put val in there
         }
         return myList;
     }
@@ -155,23 +155,45 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @Override
     public void removeNodeFor(E item) {
 
-        if(item != null && containsNodeFor(item)){
+        if (item == null || !containsNodeFor(item)) {
 
-            item2node.remove(item);// this may not be the correct item to delete
+            throw new NullPointerException(" Error in removeNodeFor ");
+            //item2node.remove(item);// this may not be the correct item to delete
         }
-        else {
-            throw new  NullPointerException(" removeNodeFor is null ");
+
+        MyNode<E> nodeToRemove = item2node.get(item);
+
+        for(MyNode<E> val : item2node.values()){
+
+            if(val.hasSucc(nodeToRemove)){
+
+                val.removeSucc(nodeToRemove);
+            }
         }
     }
 
     @Override
     public boolean containsEdgeFor(E from, E to) {
 
-        return false;
+        if(from == null || to == null){
+            throw new NullPointerException(" containsEdgeFor is null ");
+        }
+        if(!containsNodeFor(from) && !containsNodeFor(to)){
+
+            return false;
+        }
+
+        return item2node.get(from).hasSucc(item2node.get(to));
     }
 
     @Override
     public boolean removeEdgeFor(E from, E to) {
+
+        if (from == null || to == null) {
+
+            throw new NullPointerException(" Error in removeEdgeFor ");
+            //item2node.remove(item);// this may not be the correct item to delete
+        }
 
         return false;
     }
@@ -189,16 +211,15 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @SuppressWarnings("unchecked")
     public class item2NodeIterator implements Iterator<Node<E>> {
 
-        Iterator itr = item2node.entrySet().iterator();
+        Iterator itr = item2node.values().iterator();
 
-        public boolean hasNext() {
-
+        public boolean hasNext() {//retruns true or false if there is a next
             return itr.hasNext();
         }
 
         public Node<E> next() {
-
-            return (Node<E>)itr.next();
+            Node<E> newNode = (Node<E>)itr.next();
+            return newNode;
         }
     }
 }

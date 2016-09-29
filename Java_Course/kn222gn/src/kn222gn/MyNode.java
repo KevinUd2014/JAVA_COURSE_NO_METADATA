@@ -34,7 +34,7 @@ public class MyNode<E> extends Node<E> {
     @Override
     public Iterator<Node<E>> succsOf() {
 
-        return null;
+        return succs.iterator();
     }
 
     @Override
@@ -52,7 +52,7 @@ public class MyNode<E> extends Node<E> {
     @Override
     public Iterator<Node<E>> predsOf() {
 
-        return null;
+        return preds.iterator();
     }
 
     @Override
