@@ -169,7 +169,13 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
                 val.removeSucc(nodeToRemove);
             }
+            if(val.hasPred(nodeToRemove)){//could not hace else if here for some reason
+
+                val.removePred(nodeToRemove);
+            }
         }
+        nodeToRemove.disconnect();
+        item2node.remove(item);
     }
 
     @Override
@@ -195,6 +201,36 @@ public class MyGraph<E> implements DirectedGraph<E> {
             //item2node.remove(item);// this may not be the correct item to delete
         }
 
+        if(!containsNodeFor(from) || !containsNodeFor(to)){
+
+            return false;
+        }
+
+        if(containsEdgeFor(from, to)){
+
+            MyNode<E> source = item2node.get(from); //gets the "from" and "to" connections from the Node
+            MyNode<E> target = item2node.get(to);
+
+            source.removeSucc(target);
+            target.removePred(source);
+
+            if(source.isHead()){
+                heads.add(source);
+            }
+            else if(source.isTail()){
+                tails.add(source);
+            }
+            if(target.isHead()){
+                heads.add(target);
+            }
+            else if(target.isTail()){
+                tails.add(target);
+            }
+
+            return true;
+
+        }
+
         return false;
     }
 
@@ -203,7 +239,14 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
         String text = "";
 
-        text += item2node.toString();
+        Iterator iterator = iterator();
+
+        while(iterator.hasNext()){
+
+            text += iterator.next() + " | ";
+        }
+
+        text += "\n\n |||| " + item2node.toString();
 
         return text;
     }

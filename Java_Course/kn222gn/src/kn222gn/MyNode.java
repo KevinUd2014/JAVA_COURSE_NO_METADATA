@@ -86,5 +86,7 @@ public class MyNode<E> extends Node<E> {
     @Override
     protected void disconnect() {
 
+        succs.clear();
+        preds.clear();
     }
 }
