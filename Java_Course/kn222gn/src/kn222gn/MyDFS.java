@@ -19,6 +19,7 @@ public class MyDFS<E> implements DFS<E> {
     @Override
     public List<Node<E>> dfs(DirectedGraph<E> graph, Node<E> root) {
 
+        Iterator successor = root.succsOf();//adds a new iterator to work with
 
         if(!visitedNode.contains(root)){
 
