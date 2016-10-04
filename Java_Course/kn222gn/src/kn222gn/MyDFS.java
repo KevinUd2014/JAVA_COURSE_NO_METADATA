@@ -14,59 +14,55 @@ import java.util.List;
 public class MyDFS<E> implements DFS<E> {
 
     private int depthFirstNumber = 0;
-    private List visitedNode = new ArrayList<>();
+    private List<Node<E>> visitedNode = new ArrayList<>();
 
     @Override
     public List<Node<E>> dfs(DirectedGraph<E> graph, Node<E> root) {
 
-        List<Node<E>> nodeList = new ArrayList<>();
+        visitedNode.clear();
 
-        return dfsRecursive(graph, nodeList, root);
+        return dfsRecursive(root);
     }
 
-    public List<Node<E>> dfsRecursive(DirectedGraph<E> graph, List<Node<E>> visitedNodeList, Node<E> root){
+    public List<Node<E>> dfsRecursive(Node<E> root){
 
-        if(root != null) {
+            if(!visitedNode.contains(root)) {
 
-            //Iterator<Node<E>> successor = root.succsOf();
+                root.num = visitedNode.size();
 
-            if(!visitedNodeList.contains(root)){
+                visitedNode.add(root);
 
-                root.num = visitedNodeList.size();
-                visitedNodeList.add(root);
-            }
+                Iterator<Node<E>> successor = root.succsOf();
 
-            for (Node newNode : graph) {
-           // while(successor.hasNext()) {
+                while (successor.hasNext()) {
 
-                //Node<E> nextNode = successor.next();
-
-                if (!visitedNode.contains(newNode)) {
-
-                    newNode.num = visitedNode.size();
-                    visitedNode.add(newNode);
-                    dfsRecursive(graph, visitedNodeList, newNode);
+                    dfsRecursive(successor.next());
                 }
             }
-        }
-        else return null;
 
-        return visitedNodeList;
+        return visitedNode;
     }
 
     @Override
     public List<Node<E>> dfs(DirectedGraph<E> graph) {
 
-        List<Node<E>> nodeList = new ArrayList<>();
+        visitedNode.clear();
 
-        Iterator<Node<E>> head = graph.heads();
+        if(graph.headCount() > 0)
+        {
+            Iterator<Node<E>> head = graph.heads();
 
-        while(head.hasNext()){
-
-            nodeList = dfsRecursive(graph, nodeList, head.next());
+            while(head.hasNext())
+            {
+                dfsRecursive(head.next());
+            }
+        }
+        else
+        {
+            dfsRecursive(graph.getNodeFor(graph.allItems().get(0)));
         }
 
-        return nodeList;
+        return visitedNode;
     }
 
     @Override

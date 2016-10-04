@@ -47,8 +47,18 @@
       <file leaf-file-name="MyDFS.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kn222gn/MyDFS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="692">
-              <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+            <state relative-caret-position="139">
+              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyBFS.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kn222gn/MyBFS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -58,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/src/graphs/test/TestDFS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="199">
-              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -67,11 +77,9 @@
       <file leaf-file-name="MyGML.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kn222gn/MyGML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
+            <state relative-caret-position="294">
               <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -690,40 +698,40 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 43m 03s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 27m 12s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 44m 19s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 29m 19s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 44m 48s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 29m 50s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 46m 57s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 32m 08s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 47m 07s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 32m 28s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 47m 17s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 33m 41s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 47m 23s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 35m 50s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 47m 44s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 39m 24s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 48m 24s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 39m 31s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestDFS_testDFS - 2016.10.04 at 16h 49m 04s.xml">
+    <history-entry file="TestDFS_testDFS - 2016.10.04 at 18h 42m 51s.xml">
       <configuration name="TestDFS.testDFS" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="828" y="0" width="1099" height="1087" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -732,7 +740,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33265096" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33265096" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -835,9 +843,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1063,13 +1069,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kn222gn/Node.java" />
     <entry file="file://$PROJECT_DIR$/src/kn222gn_assign3/kn222gn/MyNode.java" />
-    <entry file="file://$PROJECT_DIR$/src/kn222gn/MyBFS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kn222gn/MyTransitiveClosure.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1098,6 +1097,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1223,16 +1225,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kn222gn/MyGML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kn222gn/MyGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2686">
@@ -1244,18 +1236,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/kn222gn/MyGML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kn222gn/MyBFS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/graphs/test/TestDFS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kn222gn/MyDFS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        <state relative-caret-position="139">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
           <folding />
         </state>
       </provider>
