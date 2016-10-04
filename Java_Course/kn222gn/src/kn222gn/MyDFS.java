@@ -19,23 +19,54 @@ public class MyDFS<E> implements DFS<E> {
     @Override
     public List<Node<E>> dfs(DirectedGraph<E> graph, Node<E> root) {
 
-        Iterator successor = root.succsOf();//adds a new iterator to work with
+        List<Node<E>> nodeList = new ArrayList<>();
 
-        if(!visitedNode.contains(root)){
+        return dfsRecursive(graph, nodeList, root);
+    }
 
+    public List<Node<E>> dfsRecursive(DirectedGraph<E> graph, List<Node<E>> visitedNodeList, Node<E> root){
+
+        if(root != null) {
+
+            //Iterator<Node<E>> successor = root.succsOf();
+
+            if(!visitedNodeList.contains(root)){
+
+                root.num = visitedNodeList.size();
+                visitedNodeList.add(root);
+            }
+
+            for (Node newNode : graph) {
+           // while(successor.hasNext()) {
+
+                //Node<E> nextNode = successor.next();
+
+                if (!visitedNode.contains(newNode)) {
+
+                    newNode.num = visitedNode.size();
+                    visitedNode.add(newNode);
+                    dfsRecursive(graph, visitedNodeList, newNode);
+                }
+            }
         }
-        while(successor.hasNext()){
+        else return null;
 
-
-        }
-
-        return visitedNode;
+        return visitedNodeList;
     }
 
     @Override
     public List<Node<E>> dfs(DirectedGraph<E> graph) {
 
-        return null;
+        List<Node<E>> nodeList = new ArrayList<>();
+
+        Iterator<Node<E>> head = graph.heads();
+
+        while(head.hasNext()){
+
+            nodeList = dfsRecursive(graph, nodeList, head.next());
+        }
+
+        return nodeList;
     }
 
     @Override
