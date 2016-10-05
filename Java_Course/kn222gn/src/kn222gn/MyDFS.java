@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class MyDFS<E> implements DFS<E> {
 
-    private int depthFirstNumber = 0;
     private List<Node<E>> visitedNode = new ArrayList<>();
 
     @Override
@@ -24,7 +23,7 @@ public class MyDFS<E> implements DFS<E> {
         return dfsRecursive(root);
     }
 
-    public List<Node<E>> dfsRecursive(Node<E> root){
+    private List<Node<E>> dfsRecursive(Node<E> root){
 
             if(!visitedNode.contains(root)) {
 
@@ -68,13 +67,55 @@ public class MyDFS<E> implements DFS<E> {
     @Override
     public List<Node<E>> postOrder(DirectedGraph<E> g, Node<E> root) {
 
-        return null;
+        List<Node<E>> postOrderList = new ArrayList<>();
+        List<Node<E>> visitedNodeList = new ArrayList<>();
+
+        root = g.getNodeFor(root.item());
+
+        return postOrderRecursive(postOrderList, visitedNodeList, root);
     }
 
     @Override
     public List<Node<E>> postOrder(DirectedGraph<E> g) {
 
-        return null;
+        List<Node<E>> postOrderList = new ArrayList<>();
+        List<Node<E>> visitedNodeList = new ArrayList<>();
+
+        Iterator<Node<E>> iterator = g.heads();
+
+        while(iterator.hasNext()){
+            postOrderRecursive(postOrderList, visitedNodeList, iterator.next());
+        }
+
+        return postOrderList;
+    }
+
+    private List<Node<E>> postOrderRecursive(List<Node<E>> postNodeList, List<Node<E>> visitedNodeList, Node<E> root){
+
+        //if not visited do these things
+        if(!visitedNodeList.contains(root)){
+
+            //adds the root node to the list of visited nodes
+            visitedNodeList.add(root);
+
+            Iterator<Node<E>> successor = root.succsOf();
+
+            while (successor.hasNext()) {
+
+                Node<E> nextNodeItem = successor.next();
+
+                //checks so that the postnode don't contain the new node
+                if(!postNodeList.contains(nextNodeItem)) {
+
+                    postOrderRecursive(postNodeList, visitedNodeList, nextNodeItem);
+                }
+            }
+            int addedNode = 1;
+
+            root.num = postNodeList.size() + addedNode;
+            postNodeList.add(root);
+        }
+        return postNodeList;
     }
 
     @Override
@@ -85,6 +126,7 @@ public class MyDFS<E> implements DFS<E> {
 
     @Override
     public boolean isCyclic(DirectedGraph<E> graph) {
+
 
         return false;
     }
