@@ -11,149 +11,98 @@ import java.util.*;
  */
 public class MyBFS<E> implements BFS<E> {
 
-   /* private Set<Node<E>> visited = new HashSet<>();
-    private List<Node<E>> open = new ArrayList<>();
-    private List<Node<E>> result = new ArrayList<>();*/
-
     @Override
     public List<Node<E>> bfs(DirectedGraph<E> graph, Node<E> root) {
 
-        Set<Node<E>> visited = new HashSet<>();
-        List<Node<E>> open = new ArrayList<>();
         List<Node<E>> result = new ArrayList<>();
-
-        open.add(root);
-
-        Iterator<Node<E>> iterator = open.iterator();
-
-        while (iterator.hasNext()) {
-
-            Node<E> currentNode = open.remove(0);
-            Iterator<Node<E>> successor = currentNode.succsOf();
-            visited.add(currentNode);
-
-            if (!result.contains(currentNode)) {
-
-                result.add(currentNode);
-                currentNode.num = result.size();
-            }
-
-            while (successor.hasNext()) {
-
-                Node<E> successor2 = successor.next();
-
-                if (!visited.contains(successor2)) {
-                    open.add(successor2);
-                }
-            }
-        }
-        if(!open.isEmpty()){
-            bfs(graph, root);
-        }
-
-        return result;
-    }
-
-    @Override
-    public List<Node<E>> bfs(DirectedGraph<E> graph) {
-
-        Set<Node<E>> visited = new HashSet<>();
-        List<Node<E>> open = new ArrayList<>();
-        List<Node<E>> result = new ArrayList<>();
-
-        graph.heads().forEachRemaining(open::add);
-
-        Iterator<Node<E>> iterator = open.iterator();
-
-        while (iterator.hasNext()) {
-
-            Node<E> currentNode = open.remove(0);
-            Iterator<Node<E>> successor = currentNode.succsOf();
-            visited.add(currentNode);
-
-            if (!result.contains(currentNode)) {
-
-                result.add(currentNode);
-                currentNode.num = result.size();
-            }
-
-            while (successor.hasNext()) {
-
-                Node<E> successor2 = successor.next();
-
-                if (!visited.contains(successor2)) {
-                    open.add(successor2);
-                }
-            }
-        }
-        if(!open.isEmpty()){
-            bfs(graph);
-        }
-
-        return result;
-    }
-
-    /*@Override
-    public List<Node<E>> bfs(DirectedGraph<E> graph, Node<E> root) {
-
-        HashSet<Node<E>> open = new HashSet<>();
+        ArrayList<Node<E>> toVisit = new ArrayList<>();
         HashSet<Node<E>> visited = new HashSet<>();
-        List<Node<E>> toVisitList = new ArrayList<>();
 
-        open.add(root);
+        toVisit.clear();
+        result.clear();
+        visited.clear();
 
-        return bfsRecursive(open, toVisitList, visited);
+        toVisit.add(root);
+
+        return bfsRecursive(toVisit, result, visited);
     }
 
-    private List<Node<E>> bfsRecursive(HashSet<Node<E>> open, List<Node<E>> toVisitList, HashSet<Node<E>> visited){
+    private List<Node<E>> bfsRecursive(ArrayList<Node<E>>toVisit, List<Node<E>> result, HashSet<Node<E>> visited){
 
-        Iterator<Node<E>> setIterator = open.iterator();
-        open = new HashSet<>();
+        //toVisit.clear();
 
-        if(!open.isEmpty()){
-            bfsRecursive(open, toVisitList,visited);
-        }
+        while(!toVisit.isEmpty()){
 
-        while(setIterator.hasNext()){
-            Node<E> node = setIterator.next();
+            Node<E> node = toVisit.remove(0);
 
             if(!visited.contains(node)){
-                node.num = toVisitList.size() + 1;
+
+                node.num = result.size();
+
                 visited.add(node);
-                toVisitList.add(node);
+
+                if(!result.contains(node)){
+
+                    result.add(node);
+                }
             }
+
             Iterator<Node<E>> successorIt = node.succsOf();
+
             while(successorIt.hasNext()){
+
                 Node<E> successor = successorIt.next();
+
                 if(!visited.contains(successor)){
-                    open.add(successor);
+
+                    toVisit.add(successor);
                 }
             }
         }
-        return toVisitList;
+
+        if(!toVisit.isEmpty()){
+
+            toVisit.clear();
+
+            bfsRecursive(toVisit, result, visited);
+        }
+
+        return result;
     }
 
     @Override
     public List<Node<E>> bfs(DirectedGraph<E> graph) {
 
-        List<Node<E>> toVisitList = new ArrayList<>();
-        HashSet<Node<E>> set;
+        List<Node<E>> result = new ArrayList<>();
+        ArrayList<Node<E>> toVisit = new ArrayList<>();
         HashSet<Node<E>> visited = new HashSet<>();
+
+        toVisit.clear();
+        result.clear();
+        visited.clear();
+
         Iterator<Node<E>> heads = graph.heads();
 
-        if (graph.headCount() != 0) {
-            while (heads.hasNext()) {
-                set = new HashSet<>();
-                set.add(heads.next());
-                toVisitList = bfsRecursive(set, toVisitList, visited);
-            }
-        } else {
-            set = new HashSet<>();
-            set.add(graph.getNodeFor(graph.allItems().get(0)));
+        if(graph.headCount() != 0){
 
-            bfsRecursive(set, toVisitList, visited);
+            while(heads.hasNext()){
+
+                toVisit.clear();
+
+                toVisit.add(heads.next());
+
+                bfsRecursive(toVisit, result, visited);
+            }
+        }
+        else{
+
+            toVisit.clear();
+
+            toVisit.add(graph.getNodeFor(graph.allItems().get(0)));
+
+            bfsRecursive(toVisit, result, visited);
         }
 
-        return toVisitList;
-    }*/
+        return result;
+    }
 }
