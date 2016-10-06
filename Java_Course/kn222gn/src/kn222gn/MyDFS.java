@@ -4,9 +4,7 @@ import graphs.DFS;
 import graphs.DirectedGraph;
 import graphs.Node;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Golde on 2016-09-28.
@@ -127,13 +125,39 @@ public class MyDFS<E> implements DFS<E> {
     @Override
     public boolean isCyclic(DirectedGraph<E> graph) {
 
+        Iterator<Node<E>> iterator = graph.iterator();
 
+        while(iterator.hasNext()) {
+
+            Node<E> node = iterator.next();
+
+            Iterator<Node<E>> iterator2 = node.succsOf();
+
+            while(iterator2.hasNext()) {
+
+                if (iterator2.next() == node) {
+
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     @Override
     public List<Node<E>> topSort(DirectedGraph<E> graph) {
 
-        return null;
+        Iterator<Node<E>> iterator = graph.heads();
+
+        List<Node<E>> topSortedList = new ArrayList<>();
+        List<Node<E>> visitedNodeList = new ArrayList<>();
+
+        while(iterator.hasNext()){
+
+            topSortedList = postOrderRecursive(visitedNodeList, topSortedList, iterator.next());
+        }
+        Collections.reverse(topSortedList);
+
+        return topSortedList;
     }
 }
