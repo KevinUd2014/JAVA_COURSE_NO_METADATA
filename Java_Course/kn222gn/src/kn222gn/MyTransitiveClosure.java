@@ -14,19 +14,22 @@ public class MyTransitiveClosure<E> implements TransitiveClosure<E> {
     @Override
     public Map<Node<E>, Collection<Node<E>>> computeClosure(DirectedGraph<E> dg) {
 
-        Map<Node<E>, Collection<Node<E>>> map;
-
-        map = new HashMap<>();
+        Collection<Node<E>> nodeCollection;
+        Map<Node<E>, Collection<Node<E>>> map = new HashMap<>();
 
         MyDFS<E> dfs = new MyDFS<>();
 
         Iterator<Node<E>> iterator = dg.iterator();
 
+        int cout = 0;
         while(iterator.hasNext()){
 
             Node<E> node = iterator.next();
-            map.put(node, dfs.dfs(dg, node));
+            nodeCollection = dfs.dfs(dg, node);
+            map.put(node, nodeCollection);
+            //System.out.println(cout++);
         }
+
 
         return map;
     }

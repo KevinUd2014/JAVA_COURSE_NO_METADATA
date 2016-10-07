@@ -27,14 +27,16 @@ public class MyBFS<E> implements BFS<E> {
         return bfsRecursive(toVisit, result, visited);
     }
 
+    //helper method to make the bfs recursive, sets the visited nodes and adds result to the list and
+    //iterates through the iterator fo all the elements
     private List<Node<E>> bfsRecursive(HashSet<Node<E>>toVisit, List<Node<E>> result, HashSet<Node<E>> visited){
 
-        Iterator<Node<E>> setIterator = toVisit.iterator();
+        Iterator<Node<E>> iterator = toVisit.iterator();
         toVisit = new HashSet<>();
 
-        while(setIterator.hasNext()){
+        while(iterator.hasNext()){
 
-            Node<E> node = setIterator.next();
+            Node<E> node = iterator.next();
 
             if(!visited.contains(node)){
 
@@ -48,15 +50,15 @@ public class MyBFS<E> implements BFS<E> {
                 }
             }
 
-            Iterator<Node<E>> successorIt = node.succsOf();
+            Iterator<Node<E>> successor = node.succsOf();
 
-            while(successorIt.hasNext()){
+            while(successor.hasNext()){
 
-                Node<E> successor = successorIt.next();
+                Node<E> successor2 = successor.next();
 
-                if(!visited.contains(successor)){
+                if(!visited.contains(successor2)){
 
-                    toVisit.add(successor);
+                    toVisit.add(successor2);
                 }
             }
         }

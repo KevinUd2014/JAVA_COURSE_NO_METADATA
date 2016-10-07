@@ -11,39 +11,42 @@ import java.util.*;
  */
 public class MyDFS<E> implements DFS<E> {
 
-    private List<Node<E>> visitedNode = new ArrayList<>();
+    //private List<Node<E>> visitedNode = new ArrayList<>(); //fråga om denna
 
     @Override
     public List<Node<E>> dfs(DirectedGraph<E> graph, Node<E> root) {
 
-        visitedNode.clear();
+        //visitedNode.clear();
 
-        return dfsRecursive(root);
+        List<Node<E>> visitedNode = new ArrayList<>();
+
+        return dfsRecursive(visitedNode, root);
     }
 
-    private List<Node<E>> dfsRecursive(Node<E> root){
+    private List<Node<E>> dfsRecursive(List<Node<E>> visitedNode, Node<E> root){
 
-            if(!visitedNode.contains(root)) {
+        root.num = visitedNode.size();
 
-                root.num = visitedNode.size();
+        visitedNode.add(root);
 
-                visitedNode.add(root);
+        Iterator<Node<E>> successor = root.succsOf();
 
-                Iterator<Node<E>> successor = root.succsOf();
+        while (successor.hasNext()) {
 
-                while (successor.hasNext()) {
+            Node<E> node = successor.next();
 
-                    dfsRecursive(successor.next());
-                }
+            if(!visitedNode.contains(node)) {
+                visitedNode = dfsRecursive(visitedNode, node);
             }
-
+        }
         return visitedNode;
     }
 
     @Override
     public List<Node<E>> dfs(DirectedGraph<E> graph) {
 
-        visitedNode.clear();
+        //visitedNode.clear();
+        List<Node<E>> visitedNode = new ArrayList<>();
 
         if(graph.headCount() > 0)
         {
@@ -51,12 +54,12 @@ public class MyDFS<E> implements DFS<E> {
 
             while(head.hasNext())
             {
-                dfsRecursive(head.next());
+                visitedNode = dfsRecursive(visitedNode, head.next());
             }
         }
         else
         {
-            dfsRecursive(graph.getNodeFor(graph.allItems().get(0)));
+            visitedNode = dfsRecursive(visitedNode, graph.getNodeFor(graph.allItems().get(0)));
         }
 
         return visitedNode;
