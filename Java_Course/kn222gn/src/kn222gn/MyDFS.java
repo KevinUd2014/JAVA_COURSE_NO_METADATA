@@ -19,15 +19,17 @@ public class MyDFS<E> implements DFS<E> {
         //visitedNode.clear();
 
         List<Node<E>> visitedNode = new ArrayList<>();
+        HashSet<Node<E>> visited = new HashSet<>();
 
-        return dfsRecursive(visitedNode, root);
+        return dfsRecursive(visitedNode, root, visited);
     }
 
-    private List<Node<E>> dfsRecursive(List<Node<E>> visitedNode, Node<E> root){
+    private List<Node<E>> dfsRecursive(List<Node<E>> visitedNode, Node<E> root, HashSet<Node<E>> visited){
 
         root.num = visitedNode.size();
 
         visitedNode.add(root);
+        visited.add(root);
 
         Iterator<Node<E>> successor = root.succsOf();
 
@@ -36,7 +38,7 @@ public class MyDFS<E> implements DFS<E> {
             Node<E> node = successor.next();
 
             if(!visitedNode.contains(node)) {
-                visitedNode = dfsRecursive(visitedNode, node);
+                visitedNode = dfsRecursive(visitedNode, node, visited);
             }
         }
         return visitedNode;
@@ -47,6 +49,7 @@ public class MyDFS<E> implements DFS<E> {
 
         //visitedNode.clear();
         List<Node<E>> visitedNode = new ArrayList<>();
+        HashSet<Node<E>> visited = new HashSet<>();
 
         if(graph.headCount() > 0)
         {
@@ -54,12 +57,12 @@ public class MyDFS<E> implements DFS<E> {
 
             while(head.hasNext())
             {
-                visitedNode = dfsRecursive(visitedNode, head.next());
+                visitedNode = dfsRecursive(visitedNode, head.next(), visited);
             }
         }
         else
         {
-            visitedNode = dfsRecursive(visitedNode, graph.getNodeFor(graph.allItems().get(0)));
+            visitedNode = dfsRecursive(visitedNode, graph.getNodeFor(graph.allItems().get(0)), visited);
         }
 
         return visitedNode;
