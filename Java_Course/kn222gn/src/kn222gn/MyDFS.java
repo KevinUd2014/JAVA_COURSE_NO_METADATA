@@ -37,7 +37,7 @@ public class MyDFS<E> implements DFS<E> {
 
             Node<E> node = successor.next();
 
-            if(!visitedNode.contains(node)) {
+            if(!visited.contains(node)) {
                 visitedNode = dfsRecursive(visitedNode, node, visited);
             }
         }

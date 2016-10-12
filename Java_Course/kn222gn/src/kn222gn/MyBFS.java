@@ -18,9 +18,9 @@ public class MyBFS<E> implements BFS<E> {
         HashSet<Node<E>> toVisit = new HashSet<>();
         HashSet<Node<E>> visited = new HashSet<>();
 
-        toVisit.clear();
+        /*toVisit.clear();
         result.clear();
-        visited.clear();
+        visited.clear();*/
 
         toVisit.add(root);
 
@@ -41,7 +41,6 @@ public class MyBFS<E> implements BFS<E> {
             if(!visited.contains(node)){
 
                 node.num = result.size();
-
                 visited.add(node);
 
                 if(!result.contains(node)){
@@ -80,9 +79,9 @@ public class MyBFS<E> implements BFS<E> {
         HashSet<Node<E>> toVisit = new HashSet<>();
         HashSet<Node<E>> visited = new HashSet<>();
 
-        toVisit.clear();
+        /*toVisit.clear();
         result.clear();
-        visited.clear();
+        visited.clear();*/
 
         Iterator<Node<E>> heads = graph.heads();
 

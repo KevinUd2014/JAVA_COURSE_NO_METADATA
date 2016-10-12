@@ -30,7 +30,6 @@ public class MyTransitiveClosure<E> implements TransitiveClosure<E> {
             //System.out.println(cout++);
         }
 
-
         return map;
     }
 }
