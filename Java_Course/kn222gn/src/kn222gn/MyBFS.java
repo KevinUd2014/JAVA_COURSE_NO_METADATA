@@ -28,13 +28,14 @@ public class MyBFS<E> implements BFS<E> {
     }
 
     //helper method to make the bfs recursive, sets the visited nodes and adds result to the list and
-    //iterates through the iterator fo all the elements
+    //iterates through the iterator fo all the elements.
     private List<Node<E>> bfsRecursive(HashSet<Node<E>>toVisit, List<Node<E>> result, HashSet<Node<E>> visited){
 
         Iterator<Node<E>> iterator = toVisit.iterator();
         toVisit = new HashSet<>();
 
         while(iterator.hasNext()){
+            //loops for all the nodes in the toVisitList
 
             Node<E> node = iterator.next();
 
@@ -45,17 +46,19 @@ public class MyBFS<E> implements BFS<E> {
 
                 if(!result.contains(node)){
 
-                    result.add(node);
+                    result.add(node); // adds the node if the result list doesn't contain it.
                 }
             }
 
             Iterator<Node<E>> successor = node.succsOf();
 
             while(successor.hasNext()){
+                //loops for all the successors in the node
 
                 Node<E> successor2 = successor.next();
 
                 if(!visited.contains(successor2)){
+                    //if the list doesn't contain a successor add it to the toVisitList
 
                     toVisit.add(successor2);
                 }
@@ -86,20 +89,19 @@ public class MyBFS<E> implements BFS<E> {
         Iterator<Node<E>> heads = graph.heads();
 
         if(graph.headCount() != 0){
+            //heads can't be 0 for this to loop
 
             while(heads.hasNext()){
 
                 toVisit.clear();
+                toVisit.add(heads.next());//adds the next element to the list
 
-                toVisit.add(heads.next());
-
-                bfsRecursive(toVisit, result, visited);
+                bfsRecursive(toVisit, result, visited);// and then call the recursive function again with the new list.
             }
         }
         else{
 
             toVisit.clear();
-
             toVisit.add(graph.getNodeFor(graph.allItems().get(0)));
 
             bfsRecursive(toVisit, result, visited);

@@ -35,10 +35,12 @@ public class MyDFS<E> implements DFS<E> {
         Iterator<Node<E>> successor = root.succsOf();
 
         while (successor.hasNext()) {
+            //While there is successors
 
             Node<E> node = successor.next();
 
             if(!visited.contains(node)) {//loops the HashSet faster than a list.
+                //If the visited node don't contain the Node call the method again.
                 visitedNode = dfsRecursive(visitedNode, node, visited);
             }
         }
@@ -58,11 +60,13 @@ public class MyDFS<E> implements DFS<E> {
 
             while(head.hasNext())
             {
+                //while there is a next head call the recursive function with the next head.
                 visitedNode = dfsRecursive(visitedNode, head.next(), visited);
             }
         }
         else
         {
+            //else call the recursive function with the element 0.
             visitedNode = dfsRecursive(visitedNode, graph.getNodeFor(graph.allItems().get(0)), visited);//gets the first Item/head.
         }
 
@@ -89,6 +93,7 @@ public class MyDFS<E> implements DFS<E> {
         Iterator<Node<E>> iterator = g.heads();
 
         while(iterator.hasNext()){
+
             postOrderRecursive(postOrderList, visitedNodeList, iterator.next());
         }
 
@@ -117,7 +122,7 @@ public class MyDFS<E> implements DFS<E> {
             }
             int addedNode = 1;
 
-            root.num = postNodeList.size() + addedNode;
+            root.num = postNodeList.size() + addedNode; // sets the root num to 1
             postNodeList.add(root);
         }
         return postNodeList;
@@ -143,11 +148,13 @@ public class MyDFS<E> implements DFS<E> {
             while(iterator2.hasNext()) {
 
                 if (iterator2.next() == node) {
+                    //if the next node is the same as node return true
 
                     return true;
                 }
             }
         }
+        //else return false.
         return false;
     }
 
@@ -163,7 +170,7 @@ public class MyDFS<E> implements DFS<E> {
 
             topSortedList = postOrderRecursive(visitedNodeList, topSortedList, iterator.next());
         }
-        Collections.reverse(topSortedList);
+        Collections.reverse(topSortedList);//reverses the sorted list. Using the Collection . reverse
 
         return topSortedList;
     }

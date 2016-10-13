@@ -15,7 +15,7 @@ public class MyTransitiveClosure<E> implements TransitiveClosure<E> {
     public Map<Node<E>, Collection<Node<E>>> computeClosure(DirectedGraph<E> dg) {
 
         Collection<Node<E>> nodeCollection;
-        Map<Node<E>, Collection<Node<E>>> map = new HashMap<>();
+        Map<Node<E>, Collection<Node<E>>> map = new HashMap<>(); //adds a map collection
 
         MyDFS<E> dfs = new MyDFS<>();
 
@@ -23,10 +23,11 @@ public class MyTransitiveClosure<E> implements TransitiveClosure<E> {
 
         int cout = 0;
         while(iterator.hasNext()){
+            //while the diagram has a next this code will run
 
             Node<E> node = iterator.next();
             nodeCollection = dfs.dfs(dg, node);
-            map.put(node, nodeCollection);
+            map.put(node, nodeCollection);// puts the next node in the map and the dfs ad a collection in the map.
             //System.out.println(cout++);
         }
 
