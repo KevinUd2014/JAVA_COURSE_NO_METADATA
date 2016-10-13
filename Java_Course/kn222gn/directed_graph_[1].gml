@@ -41,27 +41,27 @@ graph [
 	]
 	edge [
 		source 3
-		target 4
-	]
-	edge [
-		source 3
 		target 3
 	]
 	edge [
-		source 4
-		target 5
+		source 3
+		target 4
 	]
 	edge [
 		source 4
 		target 2
 	]
 	edge [
-		source 5
-		target 7
+		source 4
+		target 5
 	]
 	edge [
 		source 5
 		target 6
+	]
+	edge [
+		source 5
+		target 7
 	]
 	edge [
 		source 6

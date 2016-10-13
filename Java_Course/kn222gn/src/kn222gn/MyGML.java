@@ -20,6 +20,7 @@ public class MyGML<E> extends GML<E> {
 
     @Override
     public String toGML() {
+        //return a string in GML form to make it able to run in the program and get a visual presentation of the graph.
 
         String text = "";
 

@@ -14,6 +14,8 @@ public class MyNode<E> extends Node<E> {
     private Set<Node<E>> preds = new HashSet<>();
     private Set<Node<E>> succs = new HashSet<>();
 
+    //This class returns all the predecessors and the successors.
+
     public MyNode(E item) {
 
         super(item);

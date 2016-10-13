@@ -131,6 +131,8 @@ public class MyGraph<E> implements DirectedGraph<E> {
     @Override
     public List<E> allItems() {
 
+        //returns all the items in the item2node as a list.
+
         List myList = new ArrayList<>();
 
         for(MyNode<E> val : item2node.values()){
@@ -142,6 +144,8 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
     @Override
     public int edgeCount() {
+
+        //counts all the edges in the item2node map.
 
         int count = 0;
 
@@ -164,12 +168,13 @@ public class MyGraph<E> implements DirectedGraph<E> {
         MyNode<E> nodeToRemove = item2node.get(item);
 
         for(MyNode<E> val : item2node.values()){
+            //if the node is a successor and a predecessor we need to remove it there to.
 
             if(val.hasSucc(nodeToRemove)){
 
                 val.removeSucc(nodeToRemove);
             }
-            if(val.hasPred(nodeToRemove)){//could not hace else if here for some reason
+            if(val.hasPred(nodeToRemove)){//could not have else if here
 
                 val.removePred(nodeToRemove);
             }
@@ -180,6 +185,8 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
     @Override
     public boolean containsEdgeFor(E from, E to) {
+
+        //returns false or true if there is a edge connection
 
         if(from == null || to == null){
             throw new NullPointerException(" containsEdgeFor is null ");
@@ -194,6 +201,7 @@ public class MyGraph<E> implements DirectedGraph<E> {
 
     @Override
     public boolean removeEdgeFor(E from, E to) {
+        //removes all teh edges from a node
 
         if (from == null || to == null) {
 

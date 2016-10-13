@@ -26,8 +26,15 @@ public class MyConnectedComponents<E> implements ConnectedComponents<E> {
         Iterator<Node<E>> iterator = dg.iterator();
         //Node<E> nextNode = iterator.next();
 
+
+        /*While there is a next loops with a while-loop
+        * If the visited node doesn't contain the nextNode we create a variable containing the dfs function
+        * And for every itemNode in the dfsList we loop using a foreach-loop
+        * And if the visitedNode contains these itemNodes we loop the collectionNodes-collection using a foreach-loop
+        * And if this collection contains the ItemNode we add the dfs list-item to the collections and set the connection to true since there is a connection between these.
+        * */
         while(iterator.hasNext()){
-            //while the diagram has a next loop this.
+            //while the diagram has a next, loop this.
 
             Node<E> nextNode = iterator.next();
             connectionKey = false;

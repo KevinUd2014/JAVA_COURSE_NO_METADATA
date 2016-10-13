@@ -136,6 +136,7 @@ public class MyDFS<E> implements DFS<E> {
 
     @Override
     public boolean isCyclic(DirectedGraph<E> graph) {
+        //checks if the graph contains backward edges.
 
         Iterator<Node<E>> iterator = graph.iterator();
 
@@ -156,6 +157,20 @@ public class MyDFS<E> implements DFS<E> {
         }
         //else return false.
         return false;
+
+        /*for(Node<E> node : postOrder(graph)) //This is apparently more correct but somehow it won't work although it shows the correct result.
+        {
+            Iterator<Node<E>> iterator = node.succsOf();
+            while(iterator.hasNext())
+            {
+                Node<E> n = iterator.next();
+                System.out.println(node.num <= n.num);
+                if(node.num <= n.num) {
+                    return true;
+                }
+            }
+        }
+        return false;*/
     }
 
     @Override
@@ -170,7 +185,7 @@ public class MyDFS<E> implements DFS<E> {
 
             topSortedList = postOrderRecursive(visitedNodeList, topSortedList, iterator.next());
         }
-        Collections.reverse(topSortedList);//reverses the sorted list. Using the Collection . reverse
+        Collections.reverse(topSortedList);//reverse the List with the Collection . reverse.
 
         return topSortedList;
     }
