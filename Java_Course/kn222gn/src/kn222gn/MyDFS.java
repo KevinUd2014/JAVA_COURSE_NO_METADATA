@@ -21,6 +21,7 @@ public class MyDFS<E> implements DFS<E> {
         List<Node<E>> visitedNode = new ArrayList<>();
         HashSet<Node<E>> visited = new HashSet<>();
 
+        //calls the recursive method with all the values
         return dfsRecursive(visitedNode, root, visited);
     }
 
@@ -28,7 +29,7 @@ public class MyDFS<E> implements DFS<E> {
 
         root.num = visitedNode.size();
 
-        visitedNode.add(root);
+        visitedNode.add(root);//adds the root to a list and a HashSet, just to be able to use the HashSet for time complexity
         visited.add(root);
 
         Iterator<Node<E>> successor = root.succsOf();
@@ -37,7 +38,7 @@ public class MyDFS<E> implements DFS<E> {
 
             Node<E> node = successor.next();
 
-            if(!visited.contains(node)) {
+            if(!visited.contains(node)) {//loops the HashSet faster than a list.
                 visitedNode = dfsRecursive(visitedNode, node, visited);
             }
         }
@@ -51,7 +52,7 @@ public class MyDFS<E> implements DFS<E> {
         List<Node<E>> visitedNode = new ArrayList<>();
         HashSet<Node<E>> visited = new HashSet<>();
 
-        if(graph.headCount() > 0)
+        if(graph.headCount() > 0)//checks all the heads
         {
             Iterator<Node<E>> head = graph.heads();
 
@@ -62,7 +63,7 @@ public class MyDFS<E> implements DFS<E> {
         }
         else
         {
-            visitedNode = dfsRecursive(visitedNode, graph.getNodeFor(graph.allItems().get(0)), visited);
+            visitedNode = dfsRecursive(visitedNode, graph.getNodeFor(graph.allItems().get(0)), visited);//gets the first Item/head.
         }
 
         return visitedNode;

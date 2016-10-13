@@ -27,21 +27,26 @@ public class MyConnectedComponents<E> implements ConnectedComponents<E> {
         //Node<E> nextNode = iterator.next();
 
         while(iterator.hasNext()){
+            //while the diagram has a next loop this.
 
             Node<E> nextNode = iterator.next();
             connectionKey = false;
 
             if(!visitedNode.contains(nextNode)){
-
+                //if the collection doesn't contain the next node we run the dfs.
                 dfsList = dfs.dfs(dg, nextNode);
 
                 for(Node<E> itemInNode : dfsList){
+                    //For every itemnode in the dfsList
 
                     if(visitedNode.contains(itemInNode)) {
+                        //if the collection contains a itemNode from the dfsList we will add these.
 
                         for (Collection<Node<E>> c : collectionNodes) {
+                            //for all the collectionNodes in which has been added they need a connectionKey.
 
                             if (c.contains(itemInNode)) {
+                                //and if this collection contains a itemNode it will be added to all the lists and have the key set to true.
 
                                 visitedNode.addAll(dfsList);
                                 c.addAll(dfsList);
@@ -51,6 +56,7 @@ public class MyConnectedComponents<E> implements ConnectedComponents<E> {
                     }
                 }
                 if(connectionKey == false){
+                    //if the key haven't been set we create a new hashset and adds the dfs to these lists and collections.
 
                     component = new HashSet<>();
                     visitedNode.addAll(dfsList);
@@ -58,7 +64,7 @@ public class MyConnectedComponents<E> implements ConnectedComponents<E> {
                     collectionNodes.add(component);
                 }
             }
-            visitedNode.add(nextNode);
+            visitedNode.add(nextNode); //adds the nextNode to the visitedNode collection.
         }
 
         return collectionNodes;
