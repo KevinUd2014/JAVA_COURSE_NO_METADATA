@@ -158,13 +158,14 @@ public class MyDFS<E> implements DFS<E> {
         //else return false.
         return false;
 
-        /*for(Node<E> node : postOrder(graph)) //This is apparently more correct but somehow it won't work although it shows the correct result.
+       /* for(Node<E> node : postOrder(graph)) //This is apparently more correct but somehow it won't work although it shows the correct result.
         {
             Iterator<Node<E>> iterator = node.succsOf();
             while(iterator.hasNext())
             {
                 Node<E> n = iterator.next();
                 System.out.println(node.num <= n.num);
+                System.out.println(node.num + " " + n.num);
                 if(node.num <= n.num) {
                     return true;
                 }
